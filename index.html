@@ -100,7 +100,7 @@
 
         @media print {
             .page-section { display: block !important; opacity: 1 !important; transform: none !important; margin-bottom: 40px; page-break-inside: avoid; }
-            nav, .bg-shape, .interactive-btn, #demo, #chat-fab, #chat-window, .leaflet-control-container { display: none !important; }
+            nav, .bg-shape, .interactive-btn, #demo, #chat-fab, #chat-window, .leaflet-control-container, #ai-modal { display: none !important; }
             body { background: white; }
         }
     </style>
@@ -126,14 +126,20 @@
                     <button onclick="navigate('expertise')" class="nav-btn px-4 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-indigo-600 hover:bg-indigo-50/50 transition-all">Skills & Education</button>
                     <button onclick="navigate('travel')" class="nav-btn px-4 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-indigo-600 hover:bg-indigo-50/50 transition-all">Global Travel</button>
                     <div class="w-px h-6 bg-slate-200 mx-2"></div>
-                    <a href="https://drive.google.com/file/d/1UXbY6GO9ce9NrvsL8Klkoso2H0ZUF6J1/view?usp=sharing" target="_blank" class="px-4 py-2 rounded-lg text-sm font-bold text-white bg-slate-900 hover:bg-slate-800 transition-all shadow-md flex items-center gap-1.5">
+                    <a href="https://drive.google.com/file/d/1UXbY6GO9ce9NrvsL8Klkoso2H0ZUF6J1/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-lg text-sm font-bold text-white bg-slate-900 hover:bg-slate-800 transition-all shadow-md flex items-center gap-1.5">
                         <i data-lucide="external-link" class="w-4 h-4"></i> CV
                     </a>
                 </div>
 
                 <div class="md:hidden flex items-center gap-2">
-                    <a href="https://drive.google.com/file/d/1UXbY6GO9ce9NrvsL8Klkoso2H0ZUF6J1/view?usp=sharing" target="_blank" class="p-2 text-slate-600 hover:text-indigo-600"><i data-lucide="external-link" class="w-5 h-5"></i></a>
-                    <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="text-slate-600 hover:text-indigo-600 p-2"><svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+                    <a href="https://drive.google.com/file/d/1UXbY6GO9ce9NrvsL8Klkoso2H0ZUF6J1/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="p-2 text-slate-600 hover:text-indigo-600">
+                        <i data-lucide="external-link" class="w-5 h-5"></i>
+                    </a>
+                    <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="text-slate-600 hover:text-indigo-600 p-2">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
                 </div>
             </div>
         </div>
@@ -156,7 +162,10 @@
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center min-h-[70vh]">
                 <div class="order-2 lg:order-1 animate-fade-in-up">
                     <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-100 text-emerald-700 text-sm font-semibold mb-6">
-                        <span class="relative flex h-2.5 w-2.5"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span><span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span></span>
+                        <span class="relative flex h-2.5 w-2.5">
+                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+                        </span>
                         Available for New Opportunities
                     </div>
                     <h1 class="text-5xl lg:text-7xl font-heading font-extrabold tracking-tight text-slate-900 mb-4 leading-tight">
@@ -170,10 +179,11 @@
                         <!-- Top Row: Primary Actions -->
                         <div class="flex flex-wrap gap-4">
                             <button onclick="navigate('projects')" class="bg-indigo-600 hover:bg-indigo-700 text-white px-8 py-3.5 rounded-xl font-semibold shadow-lg hover:shadow-indigo-500/30 transition-all flex items-center gap-2 transform hover:-translate-y-1">
-                                Explore Patents & Demos <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                                Explore Patents & Demos 
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                             </button>
-                            <button onclick="openAiModal()" class="bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white px-8 py-3.5 rounded-xl font-semibold shadow-lg hover:shadow-purple-500/30 transition-all flex items-center justify-center gap-2 transform hover:-translate-y-1 group w-full sm:w-auto">
-                                <svg class="w-5 h-5 text-purple-200 group-hover:animate-spin" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path></svg>
+                            <button onclick="openAiModal()" class="bg-gradient-to-r from-slate-800 to-slate-900 hover:from-slate-700 hover:to-slate-800 text-white px-8 py-3.5 rounded-xl font-semibold shadow-lg hover:shadow-slate-500/30 transition-all flex items-center justify-center gap-2 transform hover:-translate-y-1 group w-full sm:w-auto border border-slate-700">
+                                <svg class="w-5 h-5 text-indigo-400 group-hover:animate-spin" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path></svg>
                                 How I Built This With AI
                             </button>
                         </div>
@@ -183,7 +193,7 @@
                                 <i data-lucide="mail" class="w-5 h-5 text-slate-500"></i>
                                 Email Me
                             </a>
-                            <a href="https://linkedin.com/in/samuel-oliver100" target="_blank" class="bg-white hover:bg-slate-50 text-slate-700 border border-slate-200 px-8 py-3.5 rounded-xl font-semibold shadow-sm hover:shadow-md transition-all flex items-center gap-2 transform hover:-translate-y-1">
+                            <a href="https://linkedin.com/in/samuel-oliver100" target="_blank" rel="noopener noreferrer" class="bg-white hover:bg-slate-50 text-slate-700 border border-slate-200 px-8 py-3.5 rounded-xl font-semibold shadow-sm hover:shadow-md transition-all flex items-center gap-2 transform hover:-translate-y-1">
                                 <svg class="w-5 h-5 text-[#0A66C2]" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
                                 Connect on LinkedIn
                             </a>
@@ -195,14 +205,13 @@
                     <div class="relative w-72 h-72 lg:w-96 lg:h-96">
                         <div class="absolute inset-0 bg-gradient-to-tr from-indigo-500 to-emerald-400 rounded-full blur-2xl opacity-40 animate-pulse"></div>
                         <div class="absolute inset-4 bg-white rounded-full border-4 border-white shadow-2xl flex items-center justify-center overflow-hidden bg-slate-100 z-10">
-                            <!-- Locked Profile Image using Cloudinary -->
-                            <img src="https://res.cloudinary.com/dgz07ilw7/image/upload/v1781543811/20250831_172820_awtxkc.jpg" alt="Samuel Oliver" class="w-full h-full object-cover">
+                            <img src="https://res.cloudinary.com/dgz07ilw7/image/upload/v1781543811/20250831_172820_awtxkc.jpg" alt="Samuel Oliver Profile Picture" class="w-full h-full object-cover">
                         </div>
-                        <div class="absolute -left-[30px] sm:-left-[45px] lg:-left-[55px] top-20 bg-white p-3 rounded-xl shadow-xl z-20 hover-lift flex items-center gap-3">
+                        <div class="absolute -left-[40px] sm:-left-[70px] lg:-left-[100px] top-20 bg-white p-3 rounded-xl shadow-xl z-20 hover-lift flex items-center gap-3">
                             <div class="bg-blue-100 p-2 rounded-lg text-blue-600"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg></div>
-                            <div><div class="text-xs text-slate-500 font-semibold">Inventor</div><div class="text-sm font-bold text-slate-800">6 Patents</div></div>
+                            <div><div class="text-xs text-slate-500 font-semibold">Inventor</div><div class="text-sm font-bold text-slate-800">1 Patent, 5 Disclosures</div></div>
                         </div>
-                        <div class="absolute -right-[30px] sm:-right-[45px] lg:-right-[55px] bottom-24 bg-white p-3 rounded-xl shadow-xl z-20 hover-lift flex items-center gap-3">
+                        <div class="absolute -right-[40px] sm:-right-[70px] lg:-right-[100px] bottom-24 bg-white p-3 rounded-xl shadow-xl z-20 hover-lift flex items-center gap-3">
                             <div class="bg-emerald-100 p-2 rounded-lg text-emerald-600"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg></div>
                             <div><div class="text-xs text-slate-500 font-semibold">Experience</div><div class="text-sm font-bold text-slate-800">6+ Years Visa</div></div>
                         </div>
@@ -243,7 +252,7 @@
                 <div class="relative pl-8 md:pl-12 hover-lift reveal-on-scroll" style="transition-delay: 0.1s;">
                     <!-- Visa Cloudinary Logo -->
                     <div class="absolute -left-[24px] top-0 w-11 h-11 bg-white border-2 border-slate-100 rounded-full flex items-center justify-center shadow-md p-1.5">
-                        <img src="https://res.cloudinary.com/dgz07ilw7/image/upload/v1781550276/Visa_Inc._logo__t2o13v.png" alt="Visa" class="w-full h-full object-contain">
+                        <img src="https://res.cloudinary.com/dgz07ilw7/image/upload/v1781550276/Visa_Inc._logo__t2o13v.png" alt="Visa Logo" class="w-full h-full object-contain">
                     </div>
                     <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
                         <div class="flex flex-wrap justify-between items-start gap-4 mb-2">
@@ -255,7 +264,27 @@
                             <li class="relative pl-5"><span class="absolute left-0 top-1.5 w-1.5 h-1.5 bg-indigo-400 rounded-full"></span><strong class="text-slate-800">Commercial Strategy:</strong> Developed the 'Banking Lifestages' cross-generational consulting package covering 7 generations and 18 personas, contributing to the Lloyds scheme RFP proposal.</li>
                             <li class="relative pl-5"><span class="absolute left-0 top-1.5 w-1.5 h-1.5 bg-indigo-400 rounded-full"></span><strong class="text-slate-800">Data & Operations:</strong> Built a Power BI dashboard analysing over 25 million rows of European payments data.</li>
                             <li class="relative pl-5"><span class="absolute left-0 top-1.5 w-1.5 h-1.5 bg-indigo-400 rounded-full"></span><strong class="text-slate-800">Partnership Growth:</strong> Set up a reseller partnership with Plan A (carbon accounting platform) and negotiated co-development with ecolytiq to build an SDK for Visa clients.</li>
+                            <li class="relative pl-5"><span class="absolute left-0 top-1.5 w-1.5 h-1.5 bg-indigo-400 rounded-full"></span><strong class="text-slate-800">Programme Management:</strong> Coordinated programme operations and partner communications; supported the strategic programme sunsetting and transfer to specialist teams.</li>
+                            <li class="relative pl-5"><span class="absolute left-0 top-1.5 w-1.5 h-1.5 bg-indigo-400 rounded-full"></span><strong class="text-slate-800">FinTech Commercials:</strong> Assessed new FinTech partners for solution performance. Implemented new billing process, reducing processing time by 50%.</li>
                         </ul>
+
+                        <!-- Independent Project Callout -->
+                        <div class="mt-5 p-4 bg-gradient-to-r from-indigo-50 to-white border border-indigo-100 rounded-xl relative overflow-hidden group shadow-sm hover:shadow-md transition-all">
+                            <div class="absolute top-0 left-0 w-1 h-full bg-indigo-500"></div>
+                            <div class="flex items-start gap-3">
+                                <div class="mt-0.5 bg-white p-1.5 rounded-lg shadow-sm text-indigo-600 border border-indigo-50"><i data-lucide="rocket" class="w-4 h-4"></i></div>
+                                <div>
+                                    <div class="flex flex-wrap items-center gap-2 mb-1">
+                                        <h4 class="font-bold text-slate-900 text-sm">Intrapreneurship: Visa Bill Share</h4>
+                                        <span class="text-[9px] font-bold uppercase tracking-wider text-indigo-600 bg-indigo-100 px-2 py-0.5 rounded-full">Independent Project</span>
+                                    </div>
+                                    <p class="text-sm text-slate-600 mb-3 leading-relaxed">Conceived and acted as Product Lead for an independent 0-to-1 project alongside my core role. Gained extensive experience pitching to executive leadership, navigating cross-functional governance, and driving product vision.</p>
+                                    <button onclick="navigate('projects')" class="inline-flex items-center gap-1.5 text-xs font-bold text-white bg-indigo-600 hover:bg-indigo-700 px-4 py-2 rounded-lg transition-colors shadow-sm group-hover:shadow group-hover:-translate-y-0.5 duration-200">
+                                        Read Case Study & View Demo <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
                         
                         <!-- LinkedIn Recommendations Box -->
                         <div class="mt-6 mb-2 bg-slate-50 rounded-xl p-5 border border-slate-100 shadow-sm relative overflow-hidden">
@@ -295,7 +324,7 @@
                 <div class="relative pl-8 md:pl-12 hover-lift reveal-on-scroll" style="transition-delay: 0.2s;">
                     <!-- ELTC Cloudinary Icon -->
                     <div class="absolute -left-[20px] top-0 w-10 h-10 bg-white border-2 border-slate-100 rounded-full flex items-center justify-center shadow-md p-1.5">
-                        <img src="https://res.cloudinary.com/dgz07ilw7/image/upload/v1781550273/ELTC_High_Resolution_Logo_Transparent-_no_background_1_hsa4fm.avif" alt="ELTC" class="w-full h-full object-contain rounded-full">
+                        <img src="https://res.cloudinary.com/dgz07ilw7/image/upload/v1781550273/ELTC_High_Resolution_Logo_Transparent-_no_background_1_hsa4fm.avif" alt="ELTC Logo" class="w-full h-full object-contain rounded-full">
                     </div>
                     <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
                         <div class="flex flex-wrap justify-between items-start gap-4 mb-4">
@@ -317,7 +346,7 @@
                     <i data-lucide="mail" class="w-5 h-5"></i>
                     Email Me
                 </a>
-                <a href="https://linkedin.com/in/samuel-oliver100" target="_blank" class="bg-white hover:bg-slate-50 text-slate-700 border border-slate-200 px-6 py-3 rounded-xl font-semibold shadow-sm transition-all flex items-center gap-2">
+                <a href="https://linkedin.com/in/samuel-oliver100" target="_blank" rel="noopener noreferrer" class="bg-white hover:bg-slate-50 text-slate-700 border border-slate-200 px-6 py-3 rounded-xl font-semibold shadow-sm transition-all flex items-center gap-2">
                     <svg class="w-5 h-5 text-[#0A66C2]" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
                     Connect on LinkedIn
                 </a>
@@ -342,7 +371,7 @@
                             Visa Bill Share
                         </h2>
                         <p class="text-lg text-slate-600 mb-4">
-                            Conceived, pitched, and led an independent product initiative entirely outside of core role remit. Owned end-to-end development from initial Figma prototypes to a 25-page technical spec.
+                            Conceived, pitched, and led an independent product initiative entirely outside of core role remit. Owned end-to-end development—from initial Figma prototypes to a 25-page technical spec. Engaged 8 different departments to secure executive sponsorship, validated the proposition with over 20,000 respondents, and secured European Product Executive Committee approval.
                         </p>
                     </div>
 
@@ -462,7 +491,7 @@
 
             <!-- Single CTA for all patents -->
             <div class="text-center reveal-on-scroll">
-                <a href="https://www.linkedin.com/in/samuel-oliver100/details/patents/" target="_blank" class="inline-flex items-center gap-2 text-indigo-600 hover:text-indigo-800 font-bold text-sm bg-white px-6 py-3 rounded-full shadow-sm border border-slate-200 hover:shadow-md transition-all group">
+                <a href="https://www.linkedin.com/in/samuel-oliver100/details/patents/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-indigo-600 hover:text-indigo-800 font-bold text-sm bg-white px-6 py-3 rounded-full shadow-sm border border-slate-200 hover:shadow-md transition-all group">
                     See all 6 patents/disclosures <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                 </a>
             </div>
@@ -523,9 +552,9 @@
                                             <div class="bg-slate-50 p-2.5 rounded-xl border border-slate-200">
                                                 <span class="text-[9px] uppercase font-bold tracking-wider text-slate-400 block mb-2 text-left">Quick Demo Presets</span>
                                                 <div class="grid grid-cols-3 gap-1.5">
-                                                    <button onclick="setPresetBill(35.50, 'Casual Lunch')" class="text-xs bg-white border hover:border-indigo-600 transition p-2 rounded-lg font-bold text-slate-700 shadow-sm">£35.50</button>
-                                                    <button onclick="setPresetBill(89.00, 'Dinner Event')" class="text-xs bg-white border hover:border-indigo-600 transition p-2 rounded-lg font-bold text-slate-700 shadow-sm">£89.00</button>
-                                                    <button onclick="setPresetBill(164.80, 'Premium Dining')" class="text-xs bg-white border hover:border-indigo-600 transition p-2 rounded-lg font-bold text-slate-700 shadow-sm">£164.80</button>
+                                                    <button type="button" onclick="setPresetBill(35.50, 'Casual Lunch')" class="text-xs bg-white border hover:border-indigo-600 transition p-2 rounded-lg font-bold text-slate-700 shadow-sm">£35.50</button>
+                                                    <button type="button" onclick="setPresetBill(89.00, 'Dinner Event')" class="text-xs bg-white border hover:border-indigo-600 transition p-2 rounded-lg font-bold text-slate-700 shadow-sm">£89.00</button>
+                                                    <button type="button" onclick="setPresetBill(164.80, 'Premium Dining')" class="text-xs bg-white border hover:border-indigo-600 transition p-2 rounded-lg font-bold text-slate-700 shadow-sm">£164.80</button>
                                                 </div>
                                             </div>
 
@@ -538,31 +567,31 @@
                                             <div class="space-y-2">
                                                 <span class="text-[9px] uppercase font-bold tracking-wider text-slate-400 block text-left">Splitting Methodology</span>
                                                 <div class="grid grid-cols-3 gap-2">
-                                                    <button id="btn-mode-equal" onclick="setSplitMode('equal')" class="flex flex-col items-center py-2 px-2 bg-indigo-50 border-2 border-indigo-600 text-indigo-900 rounded-xl transition">
+                                                    <button type="button" id="btn-mode-equal" onclick="setSplitMode('equal')" class="flex flex-col items-center py-2 px-2 bg-indigo-50 border-2 border-indigo-600 text-indigo-900 rounded-xl transition">
                                                         <i data-lucide="users" class="w-4 h-4 mb-1"></i><span class="text-[9px] font-bold">Equal</span>
                                                     </button>
-                                                    <button id="btn-mode-uneven" onclick="setSplitMode('uneven')" class="flex flex-col items-center py-2 px-2 bg-white border border-slate-200 text-slate-600 rounded-xl transition">
+                                                    <button type="button" id="btn-mode-uneven" onclick="setSplitMode('uneven')" class="flex flex-col items-center py-2 px-2 bg-white border border-slate-200 text-slate-600 rounded-xl transition">
                                                         <i data-lucide="sliders" class="w-4 h-4 mb-1"></i><span class="text-[9px] font-bold">Custom</span>
                                                     </button>
-                                                    <button id="btn-mode-itemized" onclick="setSplitMode('itemized')" class="flex flex-col items-center py-2 px-2 bg-white border border-slate-200 text-slate-600 rounded-xl transition">
+                                                    <button type="button" id="btn-mode-itemized" onclick="setSplitMode('itemized')" class="flex flex-col items-center py-2 px-2 bg-white border border-slate-200 text-slate-600 rounded-xl transition">
                                                         <i data-lucide="receipt" class="w-4 h-4 mb-1"></i><span class="text-[9px] font-bold">Itemized</span>
                                                     </button>
                                                 </div>
                                             </div>
 
                                             <div class="grid grid-cols-3 gap-1.5">
-                                                <button onclick="appendNum(1)" class="py-2.5 bg-white border border-slate-200 rounded-xl font-bold text-base hover:bg-slate-50 transition shadow-sm">1</button>
-                                                <button onclick="appendNum(2)" class="py-2.5 bg-white border border-slate-200 rounded-xl font-bold text-base hover:bg-slate-50 transition shadow-sm">2</button>
-                                                <button onclick="appendNum(3)" class="py-2.5 bg-white border border-slate-200 rounded-xl font-bold text-base hover:bg-slate-50 transition shadow-sm">3</button>
-                                                <button onclick="appendNum(4)" class="py-2.5 bg-white border border-slate-200 rounded-xl font-bold text-base hover:bg-slate-50 transition shadow-sm">4</button>
-                                                <button onclick="appendNum(5)" class="py-2.5 bg-white border border-slate-200 rounded-xl font-bold text-base hover:bg-slate-50 transition shadow-sm">5</button>
-                                                <button onclick="appendNum(6)" class="py-2.5 bg-white border border-slate-200 rounded-xl font-bold text-base hover:bg-slate-50 transition shadow-sm">6</button>
-                                                <button onclick="appendNum(7)" class="py-2.5 bg-white border border-slate-200 rounded-xl font-bold text-base hover:bg-slate-50 transition shadow-sm">7</button>
-                                                <button onclick="appendNum(8)" class="py-2.5 bg-white border border-slate-200 rounded-xl font-bold text-base hover:bg-slate-50 transition shadow-sm">8</button>
-                                                <button onclick="appendNum(9)" class="py-2.5 bg-white border border-slate-200 rounded-xl font-bold text-base hover:bg-slate-50 transition shadow-sm">9</button>
-                                                <button onclick="clearDisplay()" class="py-2.5 bg-red-50 text-red-600 border border-red-200 rounded-xl font-bold text-sm hover:bg-red-100 transition shadow-sm">Clear</button>
-                                                <button onclick="appendNum(0)" class="py-2.5 bg-white border border-slate-200 rounded-xl font-bold text-base hover:bg-slate-50 transition shadow-sm">0</button>
-                                                <button onclick="proceedToTip()" class="py-2.5 bg-indigo-600 text-white rounded-xl font-bold hover:bg-indigo-700 transition flex items-center justify-center shadow-lg shadow-indigo-600/30">
+                                                <button type="button" onclick="appendNum(1)" class="py-2.5 bg-white border border-slate-200 rounded-xl font-bold text-base hover:bg-slate-50 transition shadow-sm">1</button>
+                                                <button type="button" onclick="appendNum(2)" class="py-2.5 bg-white border border-slate-200 rounded-xl font-bold text-base hover:bg-slate-50 transition shadow-sm">2</button>
+                                                <button type="button" onclick="appendNum(3)" class="py-2.5 bg-white border border-slate-200 rounded-xl font-bold text-base hover:bg-slate-50 transition shadow-sm">3</button>
+                                                <button type="button" onclick="appendNum(4)" class="py-2.5 bg-white border border-slate-200 rounded-xl font-bold text-base hover:bg-slate-50 transition shadow-sm">4</button>
+                                                <button type="button" onclick="appendNum(5)" class="py-2.5 bg-white border border-slate-200 rounded-xl font-bold text-base hover:bg-slate-50 transition shadow-sm">5</button>
+                                                <button type="button" onclick="appendNum(6)" class="py-2.5 bg-white border border-slate-200 rounded-xl font-bold text-base hover:bg-slate-50 transition shadow-sm">6</button>
+                                                <button type="button" onclick="appendNum(7)" class="py-2.5 bg-white border border-slate-200 rounded-xl font-bold text-base hover:bg-slate-50 transition shadow-sm">7</button>
+                                                <button type="button" onclick="appendNum(8)" class="py-2.5 bg-white border border-slate-200 rounded-xl font-bold text-base hover:bg-slate-50 transition shadow-sm">8</button>
+                                                <button type="button" onclick="appendNum(9)" class="py-2.5 bg-white border border-slate-200 rounded-xl font-bold text-base hover:bg-slate-50 transition shadow-sm">9</button>
+                                                <button type="button" onclick="clearDisplay()" class="py-2.5 bg-red-50 text-red-600 border border-red-200 rounded-xl font-bold text-sm hover:bg-red-100 transition shadow-sm">Clear</button>
+                                                <button type="button" onclick="appendNum(0)" class="py-2.5 bg-white border border-slate-200 rounded-xl font-bold text-base hover:bg-slate-50 transition shadow-sm">0</button>
+                                                <button type="button" onclick="proceedToTip()" class="py-2.5 bg-indigo-600 text-white rounded-xl font-bold hover:bg-indigo-700 transition flex items-center justify-center shadow-lg shadow-indigo-600/30">
                                                     <i data-lucide="arrow-right" class="w-5 h-5"></i>
                                                 </button>
                                             </div>
@@ -581,15 +610,15 @@
                                             </div>
 
                                             <div class="grid grid-cols-2 gap-3">
-                                                <button onclick="selectTip(0)" id="btn-tip-0" class="tip-option border border-slate-300 bg-white p-3 rounded-xl flex flex-col items-center transition"><span class="text-lg font-black text-slate-800">0%</span><span class="text-[9px] text-slate-400 font-semibold">No Tip</span></button>
-                                                <button onclick="selectTip(10)" id="btn-tip-10" class="tip-option border border-slate-300 bg-white p-3 rounded-xl flex flex-col items-center transition"><span class="text-lg font-black text-slate-800">10%</span><span class="text-[9px] text-slate-400 font-semibold">Standard</span></button>
-                                                <button onclick="selectTip(15)" id="btn-tip-15" class="tip-option border-2 border-indigo-600 bg-indigo-50 p-3 rounded-xl flex flex-col items-center transition"><span class="text-lg font-black text-indigo-900">15%</span><span class="text-[9px] text-indigo-700 font-bold">Recommended</span></button>
-                                                <button onclick="selectTip(20)" id="btn-tip-20" class="tip-option border border-slate-300 bg-white p-3 rounded-xl flex flex-col items-center transition"><span class="text-lg font-black text-slate-800">20%</span><span class="text-[9px] text-slate-400 font-semibold">Excellent</span></button>
+                                                <button type="button" onclick="selectTip(0)" id="btn-tip-0" class="tip-option border border-slate-300 bg-white p-3 rounded-xl flex flex-col items-center transition"><span class="text-lg font-black text-slate-800">0%</span><span class="text-[9px] text-slate-400 font-semibold">No Tip</span></button>
+                                                <button type="button" onclick="selectTip(10)" id="btn-tip-10" class="tip-option border border-slate-300 bg-white p-3 rounded-xl flex flex-col items-center transition"><span class="text-lg font-black text-slate-800">10%</span><span class="text-[9px] text-slate-400 font-semibold">Standard</span></button>
+                                                <button type="button" onclick="selectTip(15)" id="btn-tip-15" class="tip-option border-2 border-indigo-600 bg-indigo-50 p-3 rounded-xl flex flex-col items-center transition"><span class="text-lg font-black text-indigo-900">15%</span><span class="text-[9px] text-indigo-700 font-bold">Recommended</span></button>
+                                                <button type="button" onclick="selectTip(20)" id="btn-tip-20" class="tip-option border border-slate-300 bg-white p-3 rounded-xl flex flex-col items-center transition"><span class="text-lg font-black text-slate-800">20%</span><span class="text-[9px] text-slate-400 font-semibold">Excellent</span></button>
                                             </div>
 
                                             <div class="flex gap-2">
-                                                <button onclick="showView('view-amount')" class="w-1/3 py-3 border border-slate-300 bg-white rounded-xl font-bold text-xs text-slate-600 transition">Back</button>
-                                                <button onclick="confirmTipAndAdvance()" class="w-2/3 py-3 bg-indigo-600 text-white rounded-xl font-bold text-xs hover:bg-indigo-700 transition shadow-md">Confirm & Split</button>
+                                                <button type="button" onclick="showView('view-amount')" class="w-1/3 py-3 border border-slate-300 bg-white rounded-xl font-bold text-xs text-slate-600 transition">Back</button>
+                                                <button type="button" onclick="confirmTipAndAdvance()" class="w-2/3 py-3 bg-indigo-600 text-white rounded-xl font-bold text-xs hover:bg-indigo-700 transition shadow-md">Confirm & Split</button>
                                             </div>
                                         </div>
 
@@ -604,9 +633,9 @@
                                                 <div class="bg-indigo-50 rounded-2xl p-4 text-center border border-indigo-100">
                                                     <span class="text-xs text-slate-500 uppercase tracking-widest font-extrabold">Number of Payers</span>
                                                     <div class="flex items-center justify-center gap-6 mt-3">
-                                                        <button onclick="adjustEqualPayers(-1)" class="w-12 h-12 rounded-full bg-white border shadow hover:bg-slate-50 font-black text-xl">-</button>
+                                                        <button type="button" onclick="adjustEqualPayers(-1)" class="w-12 h-12 rounded-full bg-white border shadow hover:bg-slate-50 font-black text-xl">-</button>
                                                         <span id="equal-payer-count" class="text-4xl font-extrabold text-indigo-950">3</span>
-                                                        <button onclick="adjustEqualPayers(1)" class="w-12 h-12 rounded-full bg-white border shadow hover:bg-slate-50 font-black text-xl">+</button>
+                                                        <button type="button" onclick="adjustEqualPayers(1)" class="w-12 h-12 rounded-full bg-white border shadow hover:bg-slate-50 font-black text-xl">+</button>
                                                     </div>
                                                 </div>
                                                 <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
@@ -615,14 +644,14 @@
                                             </div>
 
                                             <div id="panel-uneven-config" class="hidden space-y-2 flex-1 flex flex-col overflow-y-auto max-h-[300px] custom-scroll p-1">
-                                                <div class="flex justify-between items-center text-[10px] font-bold text-slate-500 mb-1"><span>Adjust sliders to assign limits:</span><button onclick="resetUnevenSplits()" class="text-indigo-600 underline hover:text-indigo-800">Reset Splits</button></div>
+                                                <div class="flex justify-between items-center text-[10px] font-bold text-slate-500 mb-1"><span>Adjust sliders to assign limits:</span><button type="button" onclick="resetUnevenSplits()" class="text-indigo-600 underline hover:text-indigo-800">Reset Splits</button></div>
                                                 <div id="uneven-payers-list" class="space-y-3 pb-2"></div>
-                                                <button onclick="addNewUnevenPayer()" class="text-xs bg-white text-indigo-600 border border-dashed border-indigo-300 p-2 rounded-xl font-bold hover:bg-indigo-50 transition mt-2">+ Add Customer</button>
+                                                <button type="button" onclick="addNewUnevenPayer()" class="text-xs bg-white text-indigo-600 border border-dashed border-indigo-300 p-2 rounded-xl font-bold hover:bg-indigo-50 transition mt-2">+ Add Customer</button>
                                             </div>
 
                                             <div class="flex gap-2 pt-2 border-t border-slate-100">
-                                                <button onclick="showView('view-tip')" class="w-1/3 py-3 border border-slate-300 bg-white rounded-xl font-bold text-xs text-slate-600">Back</button>
-                                                <button id="btn-confirm-split" onclick="confirmSplitBuild()" class="w-2/3 py-3 bg-indigo-600 text-white rounded-xl font-bold text-xs shadow-md">Proceed to Pay</button>
+                                                <button type="button" onclick="showView('view-tip')" class="w-1/3 py-3 border border-slate-300 bg-white rounded-xl font-bold text-xs text-slate-600">Back</button>
+                                                <button type="button" id="btn-confirm-split" onclick="confirmSplitBuild()" class="w-2/3 py-3 bg-indigo-600 text-white rounded-xl font-bold text-xs shadow-md">Proceed to Pay</button>
                                             </div>
                                         </div>
 
@@ -636,8 +665,8 @@
                                                 <div class="flex justify-between font-bold text-slate-700"><span>Unassigned Items:</span><span id="itemized-unassigned-count" class="text-amber-600">0 left</span></div>
                                             </div>
                                             <div class="flex gap-2">
-                                                <button onclick="showView('view-amount')" class="w-1/3 py-3 border border-slate-300 bg-white rounded-xl font-bold text-xs text-slate-600">Reset</button>
-                                                <button id="btn-confirm-itemized" onclick="confirmItemizedSplit()" class="w-2/3 py-3 bg-indigo-600 text-white rounded-xl font-bold text-xs shadow-md">Lock Items & Pay</button>
+                                                <button type="button" onclick="showView('view-amount')" class="w-1/3 py-3 border border-slate-300 bg-white rounded-xl font-bold text-xs text-slate-600">Reset</button>
+                                                <button type="button" id="btn-confirm-itemized" onclick="confirmItemizedSplit()" class="w-2/3 py-3 bg-indigo-600 text-white rounded-xl font-bold text-xs shadow-md">Lock Items & Pay</button>
                                             </div>
                                         </div>
 
@@ -660,7 +689,7 @@
                                             </div>
                                             <div class="space-y-2 mt-2">
                                                 <div id="payment-interaction-status" class="text-center text-xs font-bold text-indigo-700 min-h-[16px] transition-colors">Ready for Interaction</div>
-                                                <button onclick="resetApp()" class="w-full py-2.5 bg-slate-200 text-slate-700 rounded-xl font-bold text-xs">Terminate Session</button>
+                                                <button type="button" onclick="resetApp()" class="w-full py-2.5 bg-slate-200 text-slate-700 rounded-xl font-bold text-xs">Terminate Session</button>
                                             </div>
                                         </div>
 
@@ -679,7 +708,7 @@
                                                 <p class="text-xs text-emerald-600 font-bold tracking-wide uppercase mt-2">Visa Settlement Success</p>
                                             </div>
                                             <div class="mt-auto">
-                                                <button onclick="resetApp()" class="w-full py-3.5 bg-indigo-600 text-white hover:bg-indigo-700 rounded-2xl font-bold text-sm transition shadow-md">New Bill Session</button>
+                                                <button type="button" onclick="resetApp()" class="w-full py-3.5 bg-indigo-600 text-white hover:bg-indigo-700 rounded-2xl font-bold text-sm transition shadow-md">New Bill Session</button>
                                             </div>
                                         </div>
 
@@ -715,7 +744,7 @@
                 </div>
             </div>
         </section>
-
+        
         <!-- NFT DEMO SECTION -->
         <section id="nft-demo-view" class="page-section">
             <div class="mb-4 flex justify-between items-center">
@@ -761,14 +790,9 @@
                     </div>
 
                     <div id="tour-content" class="flex-1 overflow-y-auto custom-scroll p-4 bg-white relative">
-                        <div class="flex gap-2 mb-4">
-                            <button id="start-tour-btn" onclick="startAutomatedTour()" class="flex-1 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-xl shadow-lg hover:shadow-xl transition-all flex justify-center items-center gap-2 text-sm">
-                                <span>▶️</span> Start Interactive Tour
-                            </button>
-                            <button id="stop-tour-btn" onclick="stopAutomatedTour()" class="hidden py-3 px-4 bg-red-600 hover:bg-red-700 text-white font-bold rounded-xl shadow-lg hover:shadow-xl transition-all flex justify-center items-center gap-1.5 text-sm">
-                                <span>⏹️</span> Stop
-                            </button>
-                        </div>
+                        <button id="start-tour-btn" onclick="startAutomatedTour()" class="w-full mb-4 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-xl shadow-lg hover:shadow-xl transition-all flex justify-center items-center gap-2">
+                            <span>▶️</span> Start Interactive Tour
+                        </button>
                         <div id="timeline" class="relative border-l-2 border-indigo-100 ml-4 pl-6 pb-4"></div>
                     </div>
 
@@ -809,6 +833,7 @@
                         <span class="px-3 py-1.5 bg-slate-50 border border-slate-200 rounded-lg text-slate-700 text-[13px] font-medium">End-to-End Setup</span>
                         <span class="px-3 py-1.5 bg-slate-50 border border-slate-200 rounded-lg text-slate-700 text-[13px] font-medium">Go-to-Market Strategy</span>
                         <span class="px-3 py-1.5 bg-slate-50 border border-slate-200 rounded-lg text-slate-700 text-[13px] font-medium">Risk Management</span>
+                        <span class="px-3 py-1.5 bg-slate-50 border border-slate-200 rounded-lg text-slate-700 text-[13px] font-medium">Business Case Development</span>
                         <span class="px-3 py-1.5 bg-slate-50 border border-slate-200 rounded-lg text-slate-700 text-[13px] font-medium">Figma Prototyping</span>
                     </div>
                 </div>
@@ -853,12 +878,27 @@
                 </div>
             </div>
 
+            <!-- CULTURE & COMMUNITY -->
+            <div class="bg-gradient-to-r from-indigo-50 to-blue-50 p-8 rounded-2xl border border-indigo-100 shadow-sm mb-16 hover-lift reveal-on-scroll">
+                <div class="flex flex-col md:flex-row items-center gap-6">
+                    <div class="w-16 h-16 bg-white text-indigo-600 rounded-full flex items-center justify-center shadow-sm border border-indigo-100 flex-shrink-0">
+                        <i data-lucide="users" class="w-8 h-8"></i>
+                    </div>
+                    <div class="text-center md:text-left">
+                        <h3 class="text-2xl font-bold text-slate-900 mb-2">Team Culture & Community</h3>
+                        <p class="text-slate-600 leading-relaxed">
+                            I believe culture is the backbone of any product roadmap and that the best solutions come from highly engaged teams. At Visa, alongside the day job, I organised the office Easter Egg hunt (3,000+ eggs!), ran employee pairing programmes, and served as the resident Christmas Quizmaster. I value a relaxed atmosphere where the team is committed to delivering the task at hand without sacrificing a sense of fun.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
             <!-- EDUCATION HIERARCHY -->
             <div class="max-w-4xl mx-auto space-y-6">
                 <!-- CMI Hero Card -->
                 <div class="bg-gradient-to-r from-amber-50 to-white p-8 rounded-2xl border border-amber-200 shadow-sm flex flex-col md:flex-row items-center gap-8 hover-lift reveal-on-scroll">
                     <div class="w-24 h-24 flex-shrink-0 flex items-center justify-center bg-white rounded-full shadow-sm p-4 border border-amber-100">
-                        <img src="https://res.cloudinary.com/dgz07ilw7/image/upload/v1781550274/chartered-management-institute-cmi-logo_nqimfl.png" alt="CMI" class="w-full h-auto object-contain">
+                        <img src="https://res.cloudinary.com/dgz07ilw7/image/upload/v1781550274/chartered-management-institute-cmi-logo_nqimfl.png" alt="CMI Logo" class="w-full h-auto object-contain">
                     </div>
                     <div class="text-center md:text-left">
                         <div class="text-amber-600 font-bold text-sm uppercase tracking-widest mb-2">Professional Chartership</div>
@@ -876,7 +916,7 @@
                     <!-- Roehampton -->
                     <div class="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm flex flex-col items-center text-center hover-lift reveal-on-scroll" style="transition-delay: 0.1s;">
                         <div class="w-16 h-16 mb-4 flex items-center justify-center">
-                            <img src="https://res.cloudinary.com/dgz07ilw7/image/upload/v1781550274/University_of_Roehampton_logo_gmkjsb.png" alt="University of Roehampton" class="w-full h-full object-contain">
+                            <img src="https://res.cloudinary.com/dgz07ilw7/image/upload/v1781550274/University_of_Roehampton_logo_gmkjsb.png" alt="University of Roehampton Logo" class="w-full h-full object-contain">
                         </div>
                         <h3 class="text-xl font-bold text-slate-900 mb-1">BSc (Hons)</h3>
                         <p class="text-indigo-600 font-semibold mb-2">Professional Business Management</p>
@@ -887,7 +927,7 @@
                     <!-- Haileybury -->
                     <div class="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm flex flex-col items-center text-center hover-lift reveal-on-scroll" style="transition-delay: 0.2s;">
                         <div class="w-16 h-16 mb-4 flex items-center justify-center">
-                            <img src="https://res.cloudinary.com/dgz07ilw7/image/upload/v1781550276/Haileybury_ateb0k.png" alt="Haileybury" class="w-full h-full object-contain">
+                            <img src="https://res.cloudinary.com/dgz07ilw7/image/upload/v1781550276/Haileybury_ateb0k.png" alt="Haileybury Logo" class="w-full h-full object-contain">
                         </div>
                         <h3 class="text-xl font-bold text-slate-900 mb-1">A-Levels</h3>
                         <p class="text-sm text-slate-500 font-medium mb-4">Haileybury College</p>
@@ -903,7 +943,7 @@
             <div class="mt-12 flex flex-wrap justify-center gap-4 reveal-on-scroll">
                 <a href="mailto:samueloliverj@gmail.com?subject=Contact%20from%20Portfolio" class="bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-xl font-semibold shadow-md transition-all flex items-center gap-2">
                     <i data-lucide="mail" class="w-5 h-5"></i>
-                    Contact Me
+                    Email Me
                 </a>
             </div>
         </section>
@@ -913,30 +953,27 @@
     <!-- AI SHOWCASE MODAL -->
     <div id="ai-modal" class="hidden fixed inset-0 z-[10000] flex items-center justify-center bg-slate-900/60 backdrop-blur-md p-4 transition-all duration-300">
         <div class="bg-white rounded-3xl shadow-2xl border border-slate-200 overflow-hidden max-w-4xl w-full flex flex-col md:flex-row min-h-[500px] animate-fade-in relative">
-            <!-- Close Button -->
             <button onclick="closeAiModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 bg-slate-100 hover:bg-slate-200 p-2 rounded-full transition-all z-50">
                 <i data-lucide="x" class="w-5 h-5"></i>
             </button>
 
-            <!-- Left Panel: Visa Bill Share Demo -->
             <div class="w-full md:w-1/2 p-8 bg-white flex flex-col justify-center border-r border-slate-100">
                 <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center mb-6">
                     <i data-lucide="credit-card" class="w-6 h-6"></i>
                 </div>
-                <h3 class="text-2xl font-bold text-slate-900 mb-3">Visa Bill Share Demo</h3>
+                <h3 class="text-2xl font-bold text-slate-900 mb-3">Interactive Visa Bill Share Demo</h3>
                 <p class="text-sm text-slate-600 leading-relaxed">
                     I engineered an interactive, high-fidelity terminal prototype to showcase this product feature from end to end. The demo emulates a localized POS transaction loop, featuring custom-built equal and uneven bill splitting algorithms, itemized diner allocations, simulated contactless chip-reads, concurrent batch authorizations, and instant digital receipt rendering. It provides a completely functional sandbox for testing my 0-to-1 product mechanics.
                 </p>
             </div>
 
-            <!-- Right Panel: Zero-to-One Deployment -->
             <div class="w-full md:w-1/2 bg-slate-950 text-slate-300 p-8 flex flex-col justify-center">
                 <div class="w-12 h-12 bg-indigo-900/50 text-indigo-400 rounded-xl flex items-center justify-center mb-6">
                     <i data-lucide="github" class="w-6 h-6"></i>
                 </div>
-                <h3 class="text-2xl font-bold text-white mb-3">Zero-to-One Architecture</h3>
+                <h3 class="text-2xl font-bold text-white mb-3">Zero-to-One Deployment</h3>
                 <p class="text-sm text-slate-400 leading-relaxed mb-4">
-                    I hand-coded and designed this entire portfolio site completely from scratch—no bulky templates. This includes custom styles, reactive state management, and the bespoke Leaflet GIS map that powers my travel logs. To show rapid execution and absolute deployment competence, I spun up the codebase and launched it live to the web via GitHub Pages.
+                    I am an active AI user, constantly integrating new tools into my daily routine to accelerate prototyping, data synthesis, and routine execution. I hand-coded and designed this entire portfolio site from scratch to demonstrate this capability. This includes custom styles, reactive state management, and the bespoke Leaflet GIS map. To show rapid execution and absolute deployment competence, I spun up the codebase and launched it live to the web via GitHub Pages.
                 </p>
                 <div class="bg-slate-900 border border-slate-800 p-4 rounded-xl flex items-center gap-3">
                     <div class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></div>
@@ -947,12 +984,35 @@
     </div>
 
     <script>
-        // Navigation Logic
+        // --- GLOBAL UI & MODAL LOGIC ---
+        window.openAiModal = function() {
+            const modal = document.getElementById('ai-modal');
+            if (modal) {
+                modal.classList.remove('hidden');
+                document.body.style.overflow = 'hidden'; 
+                if (typeof lucide !== 'undefined') lucide.createIcons();
+            }
+        };
+
+        window.closeAiModal = function() {
+            const modal = document.getElementById('ai-modal');
+            if (modal) {
+                modal.classList.add('hidden');
+                document.body.style.overflow = ''; 
+            }
+        };
+
+        // --- NAVIGATION LOGIC ---
         let isTravelMapInitialized = false;
+        let isNftDemoActive = false;
 
         function navigate(targetId) {
             if (targetId === 'projects' && !document.getElementById('demo-app-screen').classList.contains('hidden')) {
                 exitDemo();
+                return;
+            }
+            if (targetId === 'projects' && isNftDemoActive) {
+                exitNftDemo();
                 return;
             }
 
@@ -968,7 +1028,7 @@
                             section.style.opacity = 1;
                             section.style.transform = 'translateY(0)';
                             
-                            // Map Initialization securely isolated to prevent rendering bugs
+                            // Map Initialization securely isolated
                             if (targetId === 'travel') {
                                 if (!isTravelMapInitialized) {
                                     initMap();
@@ -1024,7 +1084,8 @@
         }
         setTimeout(typeEffect, 1000);
 
-        // --- DEMO APP LOGIC ---
+        // --- STREAMING_CHUNK: Setting up Visa POS Simulator Logics... ---
+        // --- VISA BILL SHARE DEMO LOGIC ---
         function exitDemo() {
             document.getElementById('demo-app-screen').classList.add('hidden');
             navigate('projects');
@@ -1070,7 +1131,7 @@
 
         function renderWallet() {
             const container = document.getElementById('cards-wallet'); if(!container) return; container.innerHTML = '';
-            AVAILABLE_CARDS.forEach((card, i) => {
+            AVAILABLE_CARDS.forEach((card) => {
                 let isTargetPayer = false;
                 if (!document.getElementById('view-payment').classList.contains('hidden')) { if (payersList[currentPayerTapIndex] && payersList[currentPayerTapIndex].name === card.holder) isTargetPayer = true; } else { isTargetPayer = true; }
                 const activeStyle = isTargetPayer ? 'ring-2 ring-indigo-500 scale-[1.01] opacity-100' : 'opacity-50 grayscale-[50%]';
@@ -1149,8 +1210,8 @@
         function resetApp() { currentAmountCents = 0; baseBillFloat = 0.00; tipPercent = 15; grandTotalFloat = 0.00; currentPayerTapIndex = 0; payersList = []; const receiptOutlet = document.getElementById('physical-receipt-out'); if (receiptOutlet) { receiptOutlet.style.maxHeight = "0"; setTimeout(() => receiptOutlet.innerHTML = '', 400); } const led = document.getElementById('device-status-led'); if (led) led.className = "w-2 h-2 rounded-full bg-emerald-500 shadow-lg shadow-emerald-500/50"; updateAmountDisplay(); showView('view-amount'); renderWallet(); }
 
         tickClock(); setInterval(tickClock, 60000); resetApp();
-        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
 
+        // --- STREAMING_CHUNK: Setting up Map & Travel Logic... ---
         // --- MAP LOGIC (Isolated & Safe) ---
         let map;
         let currentMarkers = []; let currentPolylines = []; let lifetimeLayer = null; let tourGeoLayer = null; let lifetimeMarkers = []; let tourActive = false; let cachedGeoJson = null;
@@ -1158,7 +1219,7 @@
         const journeyData = [
             { order: 1, id: "GBR", country: "Home (UK)", flag: "🇬🇧", monument: "Home Base", emoji: "🏠", days: 0, lat: 51.5074, lng: -0.1278, desc: "Starting the global journey from home sweet home.", transport: "flight", transportEmoji: "✈️" },
             { order: 2, id: "BRA", country: "Brazil", flag: "🇧🇷", monument: "Carnival celebrations, Amazon Jungle, Lençóis sand dune expedition", emoji: "🎉", days: 108, lat: -22.9519, lng: -43.2105, desc: "Traveled extensively across Brazil for 108 days, exploring deep into local cultures.", transport: "flight", transportEmoji: "✈️" },
-            { order: 3, id: "COL", country: "Colombia", flag: "🇨🇴", monument: "Lost City Trek, Kite surfing (IKO Independent Certified), Salsa in Cali", emoji: "💃", days: 98, lat: 3.4516, lng: -76.5320, desc: "Explored the diverse regions of Colombia for 98 days, integrating into local communities.", transport: "sailing boat", transportEmoji: "⛵" },
+            { order: 3, id: "COL", country: "Colombia", flag: "🇨🇴", monument: "Lost City Trek, Learning to Kite surf (IKO Independent Certified), Salsa in Cali", emoji: "💃", days: 98, lat: 3.4516, lng: -76.5320, desc: "Explored the diverse regions of Colombia for 98 days, integrating into local communities.", transport: "sailing boat", transportEmoji: "⛵" },
             { order: 4, id: "PAN", country: "Panama", flag: "🇵🇦", monument: "Exploring cloud forests, hiking around a volcanic caldera", emoji: "🌋", days: 36, lat: 9.0800, lng: -79.6801, desc: "Navigated broadly through Panama over 36 days.", transport: "bus", transportEmoji: "🚌" },
             { order: 5, id: "CRI", country: "Costa Rica", flag: "🇨🇷", monument: "Exploring nature parks and rope swings", emoji: "🦥", days: 12, lat: 10.2750, lng: -84.8255, desc: "Journeyed across Costa Rica for 12 days, traversing challenging terrains.", transport: "bus", transportEmoji: "🚌" },
             { order: 6, id: "NIC", country: "Nicaragua", flag: "🇳🇮", monument: "Volcano boarding, biking around Ometepe Island, exploring old cities", emoji: "🛹", days: 28, lat: 12.5061, lng: -86.7021, desc: "Traveled throughout Nicaragua for 28 days.", transport: "speedboat", transportEmoji: "🚤" },
@@ -1294,29 +1355,19 @@
         function flyToLocation(index) { if(tourActive) return; const stop = journeyData[index]; map.flyTo([stop.lat, stop.lng], 5, { duration: 1.5 }); currentMarkers[index * 2].openPopup(); synthEngine.playToneFor(stop.country); }
 
         async function startAutomatedTour() {
-            if (tourActive) return; tourActive = true; 
-            document.getElementById('start-tour-btn').classList.add('opacity-50', 'cursor-not-allowed');
-            document.getElementById('stop-tour-btn').classList.remove('hidden');
+            if (tourActive) return; tourActive = true; document.getElementById('start-tour-btn').innerHTML = '<span>⏳</span> Tour in Progress...'; document.getElementById('start-tour-btn').classList.add('opacity-50', 'cursor-not-allowed');
             
-            // Automatically collapse sidebar on all devices for a better viewing experience
             const sidebar = document.getElementById('sidebar');
-            if (sidebar && !sidebar.classList.contains('ml-[-100%]')) {
+            if (!sidebar.classList.contains('ml-[-100%]')) {
                 toggleSidebar();
             }
 
             for (let i = 0; i < journeyData.length; i++) {
-                if(!tourActive) break; const stop = journeyData[i]; map.flyTo([stop.lat, stop.lng], 5, { duration: 2 }); synthEngine.playToneFor(stop.country); await new Promise(resolve => setTimeout(resolve, 2000)); if(!tourActive) break; currentMarkers[i * 2].openPopup();
+                if(!tourActive) break; const stop = journeyData[i]; map.flyTo([stop.lat, stop.lng], 5, { duration: 2 }); synthEngine.playToneFor(stop.country); await new Promise(resolve => setTimeout(resolve, 2000)); currentMarkers[i * 2].openPopup();
                 const timelineItems = document.getElementById('timeline').children; Array.from(timelineItems).forEach(el => el.children[1].classList.remove('ring-2', 'ring-indigo-500', 'bg-indigo-50')); timelineItems[i].children[1].classList.add('ring-2', 'ring-indigo-500', 'bg-indigo-50'); timelineItems[i].scrollIntoView({ behavior: 'smooth', block: 'center' });
                 await new Promise(resolve => setTimeout(resolve, 4000));
             }
-            stopAutomatedTour();
-        }
-
-        function stopAutomatedTour() {
-            tourActive = false;
-            document.getElementById('start-tour-btn').classList.remove('opacity-50', 'cursor-not-allowed');
-            document.getElementById('stop-tour-btn').classList.add('hidden');
-            synthEngine.stop(); if (map) { map.closePopup(); map.flyTo([12, 15], 2, { duration: 1.5 }); }
+            tourActive = false; document.getElementById('start-tour-btn').innerHTML = '<span>▶️</span> Restart Interactive Tour'; document.getElementById('start-tour-btn').classList.remove('opacity-50', 'cursor-not-allowed'); synthEngine.stop(); map.flyTo([12, 15], 2, { duration: 2 }); map.closePopup();
         }
 
         function initLifetimeList() {
@@ -1354,18 +1405,11 @@
         function toggleSidebar() {
             const sidebar = document.getElementById('sidebar');
             const openBtn = document.getElementById('open-sidebar-btn');
-            if (sidebar && openBtn) {
-                sidebar.classList.toggle('ml-[-100%]'); sidebar.classList.toggle('md:ml-[-420px]'); openBtn.classList.toggle('hidden');
-                
-                // Aggressive invalidation sequence to prevent gray tiles on mobile when sidebar slips out
-                let count = 0;
-                const interval = setInterval(() => {
-                    if (map) map.invalidateSize();
-                    if (++count >= 15) clearInterval(interval);
-                }, 30);
-            }
+            sidebar.classList.toggle('ml-[-100%]'); sidebar.classList.toggle('md:ml-[-420px]'); openBtn.classList.toggle('hidden');
+            setTimeout(() => { if(map) map.invalidateSize(); }, 400);
         }
 
+        // --- STREAMING_CHUNK: Initializing NFT Liquidity Logic... ---
         // --- NFT DEMO LOGIC (Vanilla JS Port of React Component) ---
         let nft_step = 'welcome';
         let nft_processingStage = 0;
@@ -1376,15 +1420,31 @@
         const nft_user = { name: "Samuel Oliver", liquidCash: 45.50, walletAddress: "0x7F2a...9C1b", nftAsset: { name: "74 Birchwood Avenue Deed", address: "74 Birchwood Avenue, Manchester, M14 5PZ", type: "Real Estate Digital Title (ERC-721)", valuation: 320000, foreclosureValue: 250000, tokenId: "8842", currentlyLocked: 0 } };
         const nft_item = { name: "DJI Mavic 3 Pro Drone", price: 1200 };
 
-        function startNftDemo() { nft_step = 'welcome'; nft_processingStage = 0; nft_bids = []; nft_creditPreference = null; nft_biddingComplete = false; navigate('nft-demo-view'); setTimeout(renderNftDemo, 100); }
-        function exitNftDemo() { navigate('projects'); }
-        function nft_startCheckout() { nft_step = 'checkout'; renderNftDemo(); }
-        function nft_openPreferences() { nft_step = 'preferences'; renderNftDemo(); }
-        function nft_setCreditPreference(pref) { nft_creditPreference = pref; renderNftDemo(); }
-        function nft_startProcessing() { nft_step = 'processing'; nft_processingStage = 0; nft_biddingComplete = false; nft_bids = []; renderNftDemo(); }
-        function nft_setStep(step) { nft_step = step; renderNftDemo(); }
+        function startNftDemo() { 
+            isNftDemoActive = true;
+            nft_step = 'welcome'; 
+            nft_processingStage = 0; 
+            nft_bids = []; 
+            nft_creditPreference = null; 
+            nft_biddingComplete = false; 
+            navigate('nft-demo-view'); 
+            setTimeout(renderNftDemo, 100); 
+        }
         
-        function nft_startBidding() {
+        function exitNftDemo() { 
+            isNftDemoActive = false;
+            const root = document.getElementById('nft-react-root');
+            if (root) root.innerHTML = ''; // Clears UI logic to break rendering loop
+            navigate('projects'); 
+        }
+
+        window.nft_startCheckout = function() { nft_step = 'checkout'; renderNftDemo(); }
+        window.nft_openPreferences = function() { nft_step = 'preferences'; renderNftDemo(); }
+        window.nft_setCreditPreference = function(pref) { nft_creditPreference = pref; renderNftDemo(); }
+        window.nft_startProcessing = function() { nft_step = 'processing'; nft_processingStage = 0; nft_biddingComplete = false; nft_bids = []; renderNftDemo(); }
+        window.nft_setStep = function(step) { nft_step = step; renderNftDemo(); }
+        
+        window.nft_startBidding = function() {
             nft_processingStage = 2; nft_biddingComplete = false; nft_bids = []; renderNftDemo();
             let mockBids = [];
             if (nft_creditPreference === 'apr') { mockBids = [ { bank: "Standard Bank", value: "8.5% APR" }, { bank: "Global Finance", value: "5.2% APR" }, { bank: "Prime Lending", value: "3.1% APR" }, { bank: "Quantum Credit", value: "1.85% APR", winner: true } ]; } 
@@ -1546,24 +1606,6 @@
                 </div>
             `;
             if (typeof lucide !== 'undefined') lucide.createIcons();
-        }
-
-        // --- AI MODAL WINDOW TOGGLES (Fixed Missing ReferenceError Scope) ---
-        function openAiModal() {
-            const modal = document.getElementById('ai-modal');
-            if (modal) {
-                modal.classList.remove('hidden');
-                document.body.style.overflow = 'hidden'; // Lock background scrolling
-                if (typeof lucide !== 'undefined') lucide.createIcons();
-            }
-        }
-
-        function closeAiModal() {
-            const modal = document.getElementById('ai-modal');
-            if (modal) {
-                modal.classList.add('hidden');
-                document.body.style.overflow = ''; // Restore background scrolling
-            }
         }
     </script>
 </body>
