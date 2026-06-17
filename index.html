@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Samuel Oliver | Product Manager & FinTech Innovator</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='28' fill='%231434CB'/%3E%3Ctext y='65' x='50' font-family='system-ui, sans-serif' font-size='46' font-weight='800' fill='%23ffffff' text-anchor='middle'%3ESO%3C/text%3E%3C/svg%3E">
     
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
@@ -93,6 +94,9 @@
         .sidebar-transition { transition: margin-left 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
         .flag-marker { font-size: 20px; filter: drop-shadow(0px 2px 4px rgba(0,0,0,0.4)); line-height: 1; text-align: center; }
 
+        .animate-fade-in { animation: fadeIn 0.4s ease-out forwards; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+
         @media print {
             .page-section { display: block !important; opacity: 1 !important; transform: none !important; margin-bottom: 40px; page-break-inside: avoid; }
             nav, .bg-shape, .interactive-btn, #demo, #chat-fab, #chat-window, .leaflet-control-container { display: none !important; }
@@ -121,16 +125,13 @@
                     <button onclick="navigate('expertise')" class="nav-btn px-4 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-indigo-600 hover:bg-indigo-50/50 transition-all">Skills & Education</button>
                     <button onclick="navigate('travel')" class="nav-btn px-4 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-indigo-600 hover:bg-indigo-50/50 transition-all">Global Travel</button>
                     <div class="w-px h-6 bg-slate-200 mx-2"></div>
-                    <!-- External Link SVG for CV -->
                     <a href="https://drive.google.com/file/d/1UXbY6GO9ce9NrvsL8Klkoso2H0ZUF6J1/view?usp=sharing" target="_blank" class="px-4 py-2 rounded-lg text-sm font-bold text-white bg-slate-900 hover:bg-slate-800 transition-all shadow-md flex items-center gap-2">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg> CV
                     </a>
                 </div>
 
                 <div class="md:hidden flex items-center gap-2">
-                    <a href="https://drive.google.com/file/d/1UXbY6GO9ce9NrvsL8Klkoso2H0ZUF6J1/view?usp=sharing" target="_blank" class="p-2 text-slate-600 hover:text-indigo-600">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
-                    </a>
+                    <a href="https://drive.google.com/file/d/1UXbY6GO9ce9NrvsL8Klkoso2H0ZUF6J1/view?usp=sharing" target="_blank" class="p-2 text-slate-600 hover:text-indigo-600"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg></a>
                     <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="text-slate-600 hover:text-indigo-600 p-2"><svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg></button>
                 </div>
             </div>
@@ -158,7 +159,7 @@
                         Available for New Opportunities
                     </div>
                     <h1 class="text-5xl lg:text-7xl font-heading font-extrabold tracking-tight text-slate-900 mb-4 leading-tight">
-                        From Roadtrip back to <span class="bg-gradient-to-r from-indigo-600 to-blue-500 text-gradient">Roadmap.</span>
+                        From Roadtrip back to <span class="bg-gradient-to-r from-indigo-600 to-blue-500 text-gradient">Roadmap</span>
                     </h1>
                     <h2 class="text-2xl text-slate-600 font-medium mb-6 h-8" id="typed-text">Product Manager & FinTech Innovator</h2>
                     <p class="text-lg text-slate-600 mb-8 leading-relaxed max-w-xl">
@@ -433,6 +434,11 @@
                         <p class="text-sm text-slate-600 leading-relaxed flex-grow">
                             By leveraging blockchain technology to provide real-time loan security, this innovation facilitates the transition of credit payments from unsecured to secured loans, allowing users to access significantly lower interest rates and more favourable financial terms.
                         </p>
+                        <div class="mt-4 pt-4 border-t border-slate-100">
+                            <button onclick="startNftDemo()" class="w-full bg-indigo-50 text-indigo-700 hover:bg-indigo-100 hover:shadow-sm py-2.5 rounded-xl font-bold text-xs transition-all flex justify-center items-center gap-2 group">
+                                Launch Interactive Demo <i data-lucide="play-circle" class="w-4 h-4 group-hover:scale-110 transition-transform"></i>
+                            </button>
+                        </div>
                     </div>
                 </div>
 
@@ -709,6 +715,19 @@
             </div>
         </section>
 
+        <!-- NFT DEMO SECTION -->
+        <section id="nft-demo-view" class="page-section">
+            <div class="mb-4 flex justify-between items-center">
+                <button onclick="exitNftDemo()" class="text-indigo-600 hover:text-indigo-800 font-bold flex items-center gap-2 transition-colors bg-white px-4 py-2 rounded-lg shadow-sm border border-slate-100 hover:shadow-md">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+                    Exit Demo
+                </button>
+            </div>
+            <div id="nft-react-root" class="w-full py-8">
+                <!-- Vanilla JS render target for the React Component Port -->
+            </div>
+        </section>
+
         <!-- TRAVEL SECTION -->
         <section id="travel" class="page-section">
             <div class="mb-8 text-center">
@@ -741,14 +760,9 @@
                     </div>
 
                     <div id="tour-content" class="flex-1 overflow-y-auto custom-scroll p-4 bg-white relative">
-                        <div class="flex gap-2 mb-4">
-                            <button id="start-tour-btn" onclick="startAutomatedTour()" class="flex-1 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-xl shadow-lg hover:shadow-xl transition-all flex justify-center items-center gap-2">
-                                <span>▶️</span> Start Tour
-                            </button>
-                            <button id="reset-tour-btn" onclick="resetInteractiveTour()" class="hidden px-4 py-3 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold rounded-xl shadow-sm transition-all flex justify-center items-center gap-2">
-                                <span>⏹️</span> Stop
-                            </button>
-                        </div>
+                        <button id="start-tour-btn" onclick="startAutomatedTour()" class="w-full mb-4 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-xl shadow-lg hover:shadow-xl transition-all flex justify-center items-center gap-2">
+                            <span>▶️</span> Start Interactive Tour
+                        </button>
                         <div id="timeline" class="relative border-l-2 border-indigo-100 ml-4 pl-6 pb-4"></div>
                     </div>
 
@@ -861,6 +875,7 @@
                         <h3 class="text-xl font-bold text-slate-900 mb-1">BSc (Hons)</h3>
                         <p class="text-indigo-600 font-semibold mb-2">Professional Business Management</p>
                         <p class="text-sm text-slate-500 font-medium">University of Roehampton</p>
+                        <p class="text-[11px] text-slate-400 mt-2 font-medium italic px-4 leading-tight">(University Program Completed as part of Degree Apprenticeship paid for by Visa)</p>
                     </div>
 
                     <!-- Haileybury -->
@@ -881,68 +896,11 @@
 
             <div class="mt-12 flex flex-wrap justify-center gap-4 reveal-on-scroll">
                 <a href="mailto:samueloliverj@gmail.com?subject=Contact%20from%20Portfolio" class="bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-xl font-semibold shadow-md transition-all flex items-center gap-2">
-                    <i data-lucide="mail" class="w-5 h-5"></i>
-                    Email Me
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                    Contact Me
                 </a>
             </div>
         </section>
-
-        <!-- AI SHOWCASE MODAL -->
-        <div id="ai-modal" class="hidden fixed inset-0 z-[99999] flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm transition-all duration-300">
-            <div class="bg-white max-w-3xl w-full rounded-3xl shadow-2xl border border-slate-100 overflow-hidden relative flex flex-col max-h-[90vh] animate-fade-in-up">
-                <div class="p-6 bg-gradient-to-r from-purple-800 via-indigo-700 to-indigo-900 text-white relative">
-                    <button onclick="closeAiModal()" class="absolute top-4 right-4 text-white/80 hover:text-white bg-white/10 hover:bg-white/20 p-2 rounded-full backdrop-blur-sm transition-all">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-                    </button>
-                    <div class="flex items-center gap-3">
-                        <div class="w-12 h-12 rounded-xl bg-white/15 flex items-center justify-center text-2xl shadow-inner">🤖</div>
-                        <div>
-                            <h3 class="text-xl font-bold tracking-tight">AI Orchestration & Showcase</h3>
-                            <p class="text-xs text-indigo-200 mt-1 uppercase tracking-wider font-semibold">How this portfolio demonstrates AI prototyping skills</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="p-6 overflow-y-auto custom-scroll space-y-6">
-                    <div>
-                        <h4 class="text-sm font-bold text-slate-900 uppercase tracking-wider mb-2 flex items-center gap-2">
-                            <svg class="w-4 h-4 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
-                            The AI Co-Creation Framework
-                        </h4>
-                        <p class="text-sm text-slate-600 leading-relaxed">
-                            Rather than using generic drag-and-drop website templates, this entire portfolio was engineered from scratch via Agentic Code-Generation Workflows. As a Product Manager, leveraging AI allows me to translate complex requirements into raw, working software architectures in real-time.
-                        </p>
-                    </div>
-
-                    <div class="border-t border-slate-100 pt-4">
-                        <h4 class="text-sm font-bold text-slate-900 uppercase tracking-wider mb-3 flex items-center gap-2">
-                            <svg class="w-4 h-4 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
-                            Featured Technical Integrations
-                        </h4>
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                            <div class="p-4 bg-slate-50 rounded-xl border border-slate-100">
-                                <h5 class="font-bold text-slate-800 text-sm mb-2 flex items-center gap-1.5"><i data-lucide="smartphone" class="w-4 h-4 text-indigo-500"></i> Interactive Visa Bill Share Demo</h5>
-                                <p class="text-xs text-slate-600 leading-relaxed">
-                                    Built a new demo to showcase the product feature that simulates all stages of the splitting function. It is fully interactive and functional, successfully acting as a live prototype for product demonstrations.
-                                </p>
-                            </div>
-                            <div class="p-4 bg-slate-50 rounded-xl border border-slate-100">
-                                <h5 class="font-bold text-slate-800 text-sm mb-2 flex items-center gap-1.5"><i data-lucide="globe-2" class="w-4 h-4 text-emerald-500"></i> Zero-to-One Deployment via GitHub Pages</h5>
-                                <p class="text-xs text-slate-600 leading-relaxed">
-                                    Created the whole site from scratch including the complex interactive travel overviews and map rendering engines, and then securely spun the site up natively on a GitHub page for global viewing.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="p-4 bg-slate-50 border-t border-slate-100 flex justify-end">
-                    <button onclick="closeAiModal()" class="px-5 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl font-bold text-sm shadow-md transition-colors">
-                        Got it, close
-                    </button>
-                </div>
-            </div>
-        </div>
 
     </main>
 
@@ -1023,9 +981,6 @@
             setTimeout(typeEffect, typeSpeed);
         }
         setTimeout(typeEffect, 1000);
-
-        function openAiModal() { document.getElementById('ai-modal').classList.remove('hidden'); soundDoubleChime(); }
-        function closeAiModal() { document.getElementById('ai-modal').classList.add('hidden'); soundBeep(); }
 
         // --- DEMO APP LOGIC ---
         function exitDemo() {
@@ -1161,15 +1116,15 @@
         const journeyData = [
             { order: 1, id: "GBR", country: "Home (UK)", flag: "🇬🇧", monument: "Home Base", emoji: "🏠", days: 0, lat: 51.5074, lng: -0.1278, desc: "Starting the global journey from home sweet home.", transport: "flight", transportEmoji: "✈️" },
             { order: 2, id: "BRA", country: "Brazil", flag: "🇧🇷", monument: "Carnival celebrations, Amazon Jungle, Lençóis sand dune expedition", emoji: "🎉", days: 108, lat: -22.9519, lng: -43.2105, desc: "Traveled extensively across Brazil for 108 days, exploring deep into local cultures.", transport: "flight", transportEmoji: "✈️" },
-            { order: 3, id: "COL", country: "Colombia", flag: "🇨🇴", monument: "Lost City Trek, Learning to Kite surf, Salsa in Cali", emoji: "💃", days: 98, lat: 3.4516, lng: -76.5320, desc: "Explored the diverse regions of Colombia for 98 days, integrating into local communities.", transport: "sailing boat", transportEmoji: "⛵" },
+            { order: 3, id: "COL", country: "Colombia", flag: "🇨🇴", monument: "Lost City Trek, Kite surfing (IKO Independent Certified), Salsa in Cali", emoji: "💃", days: 98, lat: 3.4516, lng: -76.5320, desc: "Explored the diverse regions of Colombia for 98 days, integrating into local communities.", transport: "sailing boat", transportEmoji: "⛵" },
             { order: 4, id: "PAN", country: "Panama", flag: "🇵🇦", monument: "Exploring cloud forests, hiking around a volcanic caldera", emoji: "🌋", days: 36, lat: 9.0800, lng: -79.6801, desc: "Navigated broadly through Panama over 36 days.", transport: "bus", transportEmoji: "🚌" },
             { order: 5, id: "CRI", country: "Costa Rica", flag: "🇨🇷", monument: "Exploring nature parks and rope swings", emoji: "🦥", days: 12, lat: 10.2750, lng: -84.8255, desc: "Journeyed across Costa Rica for 12 days, traversing challenging terrains.", transport: "bus", transportEmoji: "🚌" },
             { order: 6, id: "NIC", country: "Nicaragua", flag: "🇳🇮", monument: "Volcano boarding, biking around Ometepe Island, exploring old cities", emoji: "🛹", days: 28, lat: 12.5061, lng: -86.7021, desc: "Traveled throughout Nicaragua for 28 days.", transport: "speedboat", transportEmoji: "🚤" },
             { order: 7, id: "SLV", country: "El Salvador", flag: "🇸🇻", monument: "Hiking Santa Ana Volcano, Ruta de las Flores, camping on a volcano for sunrise", emoji: "🏕️", days: 16, lat: 13.8583, lng: -89.6294, desc: "Explored El Salvador for 16 days.", transport: "bus", transportEmoji: "🚌" },
             { order: 8, id: "GTM", country: "Guatemala", flag: "🇬🇹", monument: "Exploring Tikal, seeing lava erupt from Volcán de Fuego, boat trips on Lake Atitlán", emoji: "🔥", days: 27, lat: 17.2220, lng: -89.6237, desc: "Journeyed across Guatemala for 27 amazing days.", transport: "bus", transportEmoji: "🚌" },
-            { order: 9, id: "BLZ", country: "Belize", flag: "🇧🇿", monument: "Scuba diving the Hol Chan marine reserve and exploring ancient ruins", emoji: "🤿", days: 10, lat: 17.8686, lng: -87.9868, desc: "Traveled widely through Belize for 10 days.", transport: "flight", transportEmoji: "✈️" },
+            { order: 9, id: "BLZ", country: "Belize", flag: "🇧🇿", monument: "Scuba diving the Hol Chan marine reserve (PADI Advanced Certified) and exploring ancient ruins", emoji: "🤿", days: 10, lat: 17.8686, lng: -87.9868, desc: "Traveled widely through Belize for 10 days.", transport: "flight", transportEmoji: "✈️" },
             { order: 10, id: "GBR", country: "Home (UK)", flag: "🇬🇧", monument: "Home for Christmas", emoji: "🎄", days: 0, lat: 51.5074, lng: -0.1278, desc: "Returned home briefly to celebrate Christmas with loved ones before continuing the global expedition.", transport: "flight", transportEmoji: "✈️" },
-            { order: 11, id: "PHL", country: "Philippines", flag: "🇵🇭", monument: "Chocolate hills, wreck scuba diving WW2 wrecks, boat expeditions between islands, canyoneering", emoji: "🏝️", days: 53, lat: 9.9167, lng: 124.1667, desc: "Island-hopped and navigated complex travel routes across the Philippines for 53 days.", transport: "flight", transportEmoji: "✈️" },
+            { order: 11, id: "PHL", country: "Philippines", flag: "🇵🇭", monument: "Chocolate hills, wreck scuba diving WW2 wrecks (PADI Advanced Certified), boat expeditions between islands, canyoneering", emoji: "🏝️", days: 53, lat: 9.9167, lng: 124.1667, desc: "Island-hopped and navigated complex travel routes across the Philippines for 53 days.", transport: "flight", transportEmoji: "✈️" },
             { order: 12, id: "AUS", country: "Australia", flag: "🇦🇺", monument: "Exploring the Great Ocean Road, east coast beaches, the Blue Mountains", emoji: "🐨", days: 53, lat: -33.8568, lng: 151.2153, desc: "Traversed the vast Australian continent over 53 action-packed days.", transport: "flight", transportEmoji: "✈️" },
             { order: 13, id: "VNM", country: "Vietnam", flag: "🇻🇳", monument: "Getting a suit made in Hoi An, Cu Chi tunnels, Ha Giang loop", emoji: "🏍️", days: 44, lat: 22.8233, lng: 104.9833, desc: "Traveled all over Vietnam for 44 days.", transport: "flight", transportEmoji: "✈️" },
             { order: 14, id: "LAO", country: "Laos", flag: "🇱🇦", monument: "Currently exploring Luang Prabang and surrounds", emoji: "📍", days: 0, lat: 19.8833, lng: 102.1333, desc: "Presently stationed in Laos, exploring the serene landscapes and immersing myself in the vibrant local culture.", transport: "flight", transportEmoji: "✈️" }
@@ -1296,14 +1251,8 @@
 
         function flyToLocation(index) { if(tourActive) return; const stop = journeyData[index]; map.flyTo([stop.lat, stop.lng], 5, { duration: 1.5 }); currentMarkers[index * 2].openPopup(); synthEngine.playToneFor(stop.country); }
 
-        let tourCancellationRequested = false;
         async function startAutomatedTour() {
-            if (tourActive) return; 
-            tourActive = true; 
-            tourCancellationRequested = false;
-            document.getElementById('start-tour-btn').innerHTML = '<span>⏳</span> Tour in Progress...'; 
-            document.getElementById('start-tour-btn').classList.add('opacity-50', 'cursor-not-allowed');
-            document.getElementById('reset-tour-btn').classList.remove('hidden');
+            if (tourActive) return; tourActive = true; document.getElementById('start-tour-btn').innerHTML = '<span>⏳</span> Tour in Progress...'; document.getElementById('start-tour-btn').classList.add('opacity-50', 'cursor-not-allowed');
             
             // Automatically collapse sidebar on all devices for a better viewing experience
             const sidebar = document.getElementById('sidebar');
@@ -1312,43 +1261,11 @@
             }
 
             for (let i = 0; i < journeyData.length; i++) {
-                if(!tourActive || tourCancellationRequested) break; 
-                const stop = journeyData[i]; 
-                map.flyTo([stop.lat, stop.lng], 5, { duration: 2 }); 
-                synthEngine.playToneFor(stop.country); 
-                
-                // Wait for flight allowing cancellation
-                for(let w=0; w<20; w++) { if(tourCancellationRequested) break; await new Promise(r => setTimeout(r, 100)); }
-                if(tourCancellationRequested) break;
-                
-                currentMarkers[i * 2].openPopup();
-                const timelineItems = document.getElementById('timeline').children; 
-                Array.from(timelineItems).forEach(el => el.children[1].classList.remove('ring-2', 'ring-indigo-500', 'bg-indigo-50')); 
-                timelineItems[i].children[1].classList.add('ring-2', 'ring-indigo-500', 'bg-indigo-50'); 
-                timelineItems[i].scrollIntoView({ behavior: 'smooth', block: 'center' });
-                
-                // Wait at location allowing cancellation
-                for(let w=0; w<40; w++) { if(tourCancellationRequested) break; await new Promise(r => setTimeout(r, 100)); }
+                if(!tourActive) break; const stop = journeyData[i]; map.flyTo([stop.lat, stop.lng], 5, { duration: 2 }); synthEngine.playToneFor(stop.country); await new Promise(resolve => setTimeout(resolve, 2000)); currentMarkers[i * 2].openPopup();
+                const timelineItems = document.getElementById('timeline').children; Array.from(timelineItems).forEach(el => el.children[1].classList.remove('ring-2', 'ring-indigo-500', 'bg-indigo-50')); timelineItems[i].children[1].classList.add('ring-2', 'ring-indigo-500', 'bg-indigo-50'); timelineItems[i].scrollIntoView({ behavior: 'smooth', block: 'center' });
+                await new Promise(resolve => setTimeout(resolve, 4000));
             }
-            
-            if (!tourCancellationRequested) {
-                resetInteractiveTourState();
-            }
-        }
-
-        function resetInteractiveTour() {
-            tourCancellationRequested = true;
-            resetInteractiveTourState();
-        }
-
-        function resetInteractiveTourState() {
-            tourActive = false; 
-            document.getElementById('start-tour-btn').innerHTML = '<span>▶️</span> Start Tour'; 
-            document.getElementById('start-tour-btn').classList.remove('opacity-50', 'cursor-not-allowed'); 
-            document.getElementById('reset-tour-btn').classList.add('hidden');
-            synthEngine.stop(); 
-            map.flyTo([12, 15], 2, { duration: 2 }); 
-            map.closePopup();
+            tourActive = false; document.getElementById('start-tour-btn').innerHTML = '<span>▶️</span> Restart Interactive Tour'; document.getElementById('start-tour-btn').classList.remove('opacity-50', 'cursor-not-allowed'); synthEngine.stop(); map.flyTo([12, 15], 2, { duration: 2 }); map.closePopup();
         }
 
         function initLifetimeList() {
@@ -1387,14 +1304,190 @@
             const sidebar = document.getElementById('sidebar');
             const openBtn = document.getElementById('open-sidebar-btn');
             sidebar.classList.toggle('ml-[-100%]'); sidebar.classList.toggle('md:ml-[-420px]'); openBtn.classList.toggle('hidden');
-            
-            if(map) {
-                [50, 150, 250, 350, 450].forEach(delay => {
-                    setTimeout(() => map.invalidateSize(), delay);
-                });
-            }
+            setTimeout(() => { if(map) map.invalidateSize(); }, 400);
         }
 
+        // --- NFT DEMO LOGIC (Vanilla JS Port of React Component) ---
+        let nft_step = 'welcome';
+        let nft_processingStage = 0;
+        let nft_bids = [];
+        let nft_creditPreference = null;
+        let nft_biddingComplete = false;
+
+        const nft_user = { name: "Samuel Oliver", liquidCash: 45.50, walletAddress: "0x7F2a...9C1b", nftAsset: { name: "74 Birchwood Avenue Deed", address: "74 Birchwood Avenue, Manchester, M14 5PZ", type: "Real Estate Digital Title (ERC-721)", valuation: 320000, foreclosureValue: 250000, tokenId: "8842", currentlyLocked: 0 } };
+        const nft_item = { name: "DJI Mavic 3 Pro Drone", price: 1200 };
+
+        function startNftDemo() { nft_step = 'welcome'; nft_processingStage = 0; nft_bids = []; nft_creditPreference = null; nft_biddingComplete = false; navigate('nft-demo-view'); setTimeout(renderNftDemo, 100); }
+        function exitNftDemo() { navigate('projects'); }
+        function nft_startCheckout() { nft_step = 'checkout'; renderNftDemo(); }
+        function nft_openPreferences() { nft_step = 'preferences'; renderNftDemo(); }
+        function nft_setCreditPreference(pref) { nft_creditPreference = pref; renderNftDemo(); }
+        function nft_startProcessing() { nft_step = 'processing'; nft_processingStage = 0; nft_biddingComplete = false; nft_bids = []; renderNftDemo(); }
+        function nft_setStep(step) { nft_step = step; renderNftDemo(); }
+        
+        function nft_startBidding() {
+            nft_processingStage = 2; nft_biddingComplete = false; nft_bids = []; renderNftDemo();
+            let mockBids = [];
+            if (nft_creditPreference === 'apr') { mockBids = [ { bank: "Standard Bank", value: "8.5% APR" }, { bank: "Global Finance", value: "5.2% APR" }, { bank: "Prime Lending", value: "3.1% APR" }, { bank: "Quantum Credit", value: "1.85% APR", winner: true } ]; } 
+            else if (nft_creditPreference === 'installments') { mockBids = [ { bank: "Standard Bank", value: "£4.50 Fee" }, { bank: "Global Finance", value: "£1.25 Fee" }, { bank: "Quantum Credit", value: "£0.56 Fee (22.9% default rate)", winner: true } ]; } 
+            else { mockBids = [ { bank: "Global Finance", value: "20 Days" }, { bank: "Prime Lending", value: "30 Days" }, { bank: "Quantum Credit", value: "45 Days", winner: true } ]; }
+            
+            mockBids.forEach((bid, index) => {
+                setTimeout(() => {
+                    nft_bids.unshift(bid); renderNftDemo();
+                    if (bid.winner) { setTimeout(() => { nft_biddingComplete = true; renderNftDemo(); }, 1000); }
+                }, index * 800);
+            });
+        }
+
+        function renderNftDemo() {
+            const root = document.getElementById('nft-react-root'); if(!root) return;
+            
+            let leftContent = '';
+            if (nft_step === 'welcome') {
+                leftContent = `
+                    <div class="animate-fade-in flex-grow flex flex-col justify-center">
+                        <div class="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center mb-6 text-blue-600"><i data-lucide="link" class="w-8 h-8"></i></div>
+                        <h2 class="text-3xl font-bold mb-4">Link Your Digital Assets</h2>
+                        <p class="text-slate-500 mb-8 leading-relaxed">Connect your Web3 wallet to your credit card alias. Use your authenticated NFTs (like property deeds) as secure collateral to access funding from multiple lending partners in real-time.</p>
+                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 mb-8"><p class="text-sm font-medium text-slate-700 mb-1">Detected Wallet</p><p class="font-mono text-sm text-slate-500">${nft_user.walletAddress}</p></div>
+                        <button onclick="nft_setStep('linking')" class="w-full bg-blue-600 text-white py-4 rounded-xl font-bold hover:bg-blue-700 transition shadow-lg shadow-blue-200 flex justify-center items-center mt-auto">Bind Wallet to Visa Alias <i data-lucide="chevron-right" class="w-5 h-5 ml-2"></i></button>
+                    </div>`;
+            } else if (nft_step === 'linking') {
+                leftContent = `
+                    <div class="animate-fade-in flex-grow flex flex-col">
+                        <div class="flex-grow flex flex-col justify-center items-center text-center">
+                            <div class="relative w-24 h-24 mb-8"><div class="absolute inset-0 border-4 border-slate-100 rounded-full"></div><div class="absolute inset-0 border-4 border-blue-600 rounded-full border-t-transparent animate-spin"></div><div class="absolute inset-0 flex items-center justify-center text-blue-600"><i data-lucide="link" class="w-8 h-8"></i></div></div>
+                            <h2 class="text-2xl font-bold mb-2">Binding Wallet...</h2><p class="text-slate-500 text-sm max-w-xs mb-8">Establishing secure connection between payment network and smart contract...</p>
+                        </div>
+                        <button onclick="nft_setStep('analyzing')" class="w-full bg-blue-600 text-white py-4 rounded-xl font-bold hover:bg-blue-700 transition shadow-lg shadow-blue-200 flex justify-center items-center mt-auto">Next: Analyze Asset Profile <i data-lucide="chevron-right" class="w-5 h-5 ml-2"></i></button>
+                    </div>`;
+            } else if (nft_step === 'analyzing') {
+                leftContent = `
+                    <div class="animate-fade-in flex-grow flex flex-col">
+                        <div class="flex-grow flex flex-col justify-center items-center text-center">
+                            <div class="relative w-24 h-24 mb-8"><div class="absolute inset-0 border-4 border-slate-100 rounded-full"></div><div class="absolute inset-0 border-4 border-blue-600 rounded-full border-t-transparent animate-spin"></div><div class="absolute inset-0 flex items-center justify-center text-blue-600"><i data-lucide="database" class="w-8 h-8"></i></div></div>
+                            <h2 class="text-2xl font-bold mb-2">Analyzing Asset Profile...</h2><p class="text-slate-500 text-sm max-w-xs mb-8">Assessing minimum foreclosure value and setting risk parameters for the credit marketplace...</p>
+                        </div>
+                        <button onclick="nft_setStep('dashboard')" class="w-full bg-blue-600 text-white py-4 rounded-xl font-bold hover:bg-blue-700 transition shadow-lg shadow-blue-200 flex justify-center items-center mt-auto">Next: Open Smart Dashboard <i data-lucide="chevron-right" class="w-5 h-5 ml-2"></i></button>
+                    </div>`;
+            } else if (nft_step === 'dashboard') {
+                leftContent = `
+                    <div class="animate-fade-in flex-grow flex flex-col">
+                        <h2 class="text-2xl font-bold mb-6">Your Smart Credit Card</h2>
+                        <div class="w-full bg-gradient-to-br from-slate-800 to-slate-900 rounded-xl p-5 text-white relative overflow-hidden shadow-xl border border-slate-700 mb-6">
+                            <div class="absolute right-0 bottom-0 opacity-10 transform translate-x-4 translate-y-4"><i data-lucide="credit-card" style="width:120px;height:120px;"></i></div>
+                            <div class="flex justify-between items-start mb-6 relative z-10"><span class="font-bold italic text-xl tracking-wider">VISA</span><div class="text-right"><span class="text-[10px] bg-blue-500/20 text-blue-300 px-2 py-1 rounded border border-blue-500/30 font-bold tracking-wider uppercase">Multi-Lender Enabled</span></div></div>
+                            <div class="flex items-center space-x-3 mb-6 relative z-10"><div class="w-10 h-7 bg-yellow-200/80 rounded shadow-inner"></div><span class="font-mono tracking-widest text-lg opacity-90">•••• •••• •••• 4281</span></div>
+                            <div class="flex justify-between items-end relative z-10"><div><p class="text-[10px] text-slate-400 uppercase tracking-wider mb-0.5">Cardholder</p><p class="text-sm font-medium">${nft_user.name}</p></div><div class="flex space-x-6 text-right"><div><p class="text-[10px] text-slate-400 uppercase tracking-wider mb-0.5">Current Account</p><p class="text-sm font-medium text-red-400">£${nft_user.liquidCash.toFixed(2)}</p></div></div></div>
+                        </div>
+                        <div class="bg-slate-900 text-white rounded-xl p-5 border border-slate-800 relative overflow-hidden mb-6 flex-grow">
+                            <div class="absolute right-0 bottom-0 opacity-10 transform translate-x-4 translate-y-4"><i data-lucide="home" style="width:120px;height:120px;"></i></div>
+                            <div class="flex items-center space-x-2 mb-4"><i data-lucide="shield" class="w-4 h-4 text-blue-400"></i><span class="text-xs text-blue-400 font-bold uppercase tracking-wider">Secured Collateral Active</span></div>
+                            <h3 class="text-lg font-bold">${nft_user.nftAsset.name}</h3><p class="text-sm text-slate-400 mb-6 truncate">${nft_user.nftAsset.address}</p>
+                            <div class="mt-auto"><div class="flex justify-between text-xs mb-1"><span class="text-slate-400">Available Drawdown</span><span class="text-green-400">100% Free</span></div><div class="w-full bg-slate-800 h-3 rounded-full overflow-hidden border border-slate-700"><div class="bg-green-500 h-full w-full"></div></div><div class="flex justify-between text-xs mt-1"><span class="text-slate-500">£0 Locked</span><span class="font-bold text-white">£250,000 Available</span></div></div>
+                        </div>
+                        <button onclick="nft_startCheckout()" class="w-full bg-blue-600 text-white py-4 rounded-xl font-medium hover:bg-blue-700 transition flex items-center justify-center shadow-lg shadow-blue-200 mt-auto">Simulate Merchant Checkout <i data-lucide="chevron-right" class="w-4 h-4 ml-2"></i></button>
+                    </div>`;
+            } else if (nft_step === 'checkout') {
+                leftContent = `
+                    <div class="animate-fade-in flex-grow flex flex-col justify-center">
+                        <div class="text-center mb-6"><div class="w-16 h-16 bg-slate-100 rounded-full flex items-center justify-center mx-auto mb-4 text-slate-600"><i data-lucide="shopping-cart" class="w-8 h-8"></i></div><h2 class="text-2xl font-bold">Checkout</h2><p class="text-slate-500">Tech Electronics Store</p></div>
+                        <div class="border border-slate-200 rounded-xl p-5 mb-6 bg-slate-50"><div class="flex justify-between items-center mb-4 pb-4 border-b border-slate-200"><span class="font-medium text-slate-800">${nft_item.name}</span><span class="font-bold text-slate-800">£${nft_item.price.toLocaleString()}</span></div><div class="flex justify-between items-center text-sm"><span class="text-slate-500">Total Due:</span><span class="text-2xl font-bold text-slate-900">£${nft_item.price.toLocaleString()}</span></div></div>
+                        <div class="bg-blue-50 border border-blue-200 rounded-xl p-4 mb-6"><p class="text-sm font-bold text-blue-800 mb-2 flex items-center"><i data-lucide="credit-card" class="w-4 h-4 mr-2"></i> Smart Credit Routing</p><p class="text-xs text-blue-600">Your card is linked to a secured NFT. Instead of a single bank declining the transaction, route this purchase to the open lending marketplace.</p></div>
+                        <button onclick="nft_openPreferences()" class="w-full bg-slate-900 text-white py-4 rounded-xl font-medium hover:bg-slate-800 transition flex items-center justify-center mt-auto"><i data-lucide="lock" class="w-4 h-4 mr-2 text-blue-400"></i> Access Multi-Lender Marketplace</button>
+                    </div>`;
+            } else if (nft_step === 'preferences') {
+                leftContent = `
+                    <div class="animate-fade-in flex-grow flex flex-col">
+                        <div class="mb-6"><h2 class="text-2xl font-bold text-slate-800 flex items-center mb-2"><i data-lucide="sliders" class="w-6 h-6 mr-2 text-blue-600"></i> Credit Terms</h2><p class="text-sm text-slate-500">How would you like to structure the £1,200 collateral draw? The marketplace will bid based on your preference.</p></div>
+                        <div class="space-y-3 mb-6">
+                            <button onclick="nft_setCreditPreference('apr')" class="w-full text-left p-4 border rounded-xl transition-all ${nft_creditPreference === 'apr' ? 'border-blue-600 bg-blue-50 ring-2 ring-blue-100' : 'border-slate-200 hover:border-blue-300 bg-white'}"><p class="font-bold text-slate-800">Lowest Long-Term APR</p><p class="text-xs text-slate-500 mt-1">Banks will compete to offer the lowest annual percentage rate.</p></button>
+                            <button onclick="nft_setCreditPreference('installments')" class="w-full text-left p-4 border rounded-xl transition-all ${nft_creditPreference === 'installments' ? 'border-blue-600 bg-blue-50 ring-2 ring-blue-100' : 'border-slate-200 hover:border-blue-300 bg-white'}"><p class="font-bold text-slate-800 flex items-center">Fixed Installment Plan <span class="ml-2 text-[10px] bg-slate-200 px-2 py-0.5 rounded text-slate-600">3 Months</span></p><p class="text-xs text-slate-500 mt-1">Split into 3 payments. Banks will bid down the setup fee.</p></button>
+                            <button onclick="nft_setCreditPreference('interest_free')" class="w-full text-left p-4 border rounded-xl transition-all ${nft_creditPreference === 'interest_free' ? 'border-blue-600 bg-blue-50 ring-2 ring-blue-100' : 'border-slate-200 hover:border-blue-300 bg-white'}"><p class="font-bold text-slate-800 flex items-center"><i data-lucide="calendar" class="w-4 h-4 mr-1"></i> Interest-Free Period</p><p class="text-xs text-slate-500 mt-1">Banks bid to offer the longest initial interest-free window.</p></button>
+                        </div>
+                        <button ${!nft_creditPreference ? 'disabled' : ''} onclick="nft_startProcessing()" class="w-full py-4 rounded-xl font-medium transition flex items-center justify-center mt-auto ${!nft_creditPreference ? 'bg-slate-200 text-slate-400 cursor-not-allowed' : 'bg-blue-600 text-white hover:bg-blue-700 shadow-lg shadow-blue-200'}">Broadcast Request to Banks <i data-lucide="chevron-right" class="w-4 h-4 ml-2"></i></button>
+                    </div>`;
+            } else if (nft_step === 'processing') {
+                let bidsHtml = nft_bids.map((bid, i) => `<div class="flex justify-between items-center p-2 rounded text-xs animate-fade-in ${bid.winner ? 'bg-green-900/50 border border-green-500/50' : 'bg-slate-800'}"><span class="font-medium text-slate-300">${bid.bank}</span><span class="font-bold ${bid.winner ? 'text-green-400 text-sm' : 'text-slate-400'}">${bid.value}</span></div>`).join('');
+                if(nft_bids.length === 0) bidsHtml = `<div class="text-xs text-slate-500 italic p-2">Broadcasting requested terms to credit marketplace...</div>`;
+                
+                leftContent = `
+                    <div class="animate-fade-in flex-grow flex flex-col">
+                        <h2 class="text-xl font-bold mb-6 flex items-center"><i data-lucide="activity" class="w-6 h-6 mr-2 text-blue-600 animate-pulse"></i> Live Marketplace</h2>
+                        <div class="flex-grow flex flex-col justify-start space-y-4">
+                            ${nft_processingStage >= 0 ? `<div class="p-4 rounded-xl border transition-all duration-300 bg-blue-50 border-blue-200"><p class="font-bold text-sm text-slate-800">1. Payment Intercept & Valuation</p><p class="text-xs text-slate-500">Foreclosure check passed (£250k valid).</p></div>` : ''}
+                            ${nft_processingStage === 0 ? `<button onclick="nft_startBidding()" class="w-full bg-slate-900 text-white py-3 rounded-xl font-medium hover:bg-slate-800 transition flex items-center justify-center animate-fade-in mt-4">Next: Open Live Bidding <i data-lucide="chevron-right" class="w-4 h-4 ml-2"></i></button>` : ''}
+                            ${nft_processingStage >= 2 ? `
+                                <div class="p-4 rounded-xl border transition-all duration-300 bg-slate-900 border-slate-800 text-white shadow-xl animate-fade-in">
+                                    <div class="flex justify-between items-center mb-3"><p class="font-bold text-sm flex items-center"><i data-lucide="gavel" class="w-4 h-4 mr-2 text-yellow-400"></i> 2. Live Institutional Bidding</p>${!nft_biddingComplete ? `<span class="text-xs text-green-400 animate-pulse">Receiving bids...</span>` : ''}</div>
+                                    <div class="space-y-2 h-32 overflow-hidden relative">${bidsHtml}</div>
+                                </div>` : ''}
+                            ${nft_processingStage === 2 && nft_biddingComplete ? `<button onclick="nft_processingStage = 3; renderNftDemo();" class="w-full bg-blue-600 text-white py-3 rounded-xl font-medium hover:bg-blue-700 transition flex items-center justify-center animate-fade-in shadow-lg shadow-blue-200 mt-4">Next: Match & Issue Referral <i data-lucide="chevron-right" class="w-4 h-4 ml-2"></i></button>` : ''}
+                            ${nft_processingStage >= 3 ? `<div class="p-4 rounded-xl border transition-all duration-300 bg-green-50 border-green-200 animate-fade-in"><p class="font-bold text-sm text-slate-800">3. Match & Issue Referral</p><p class="text-xs text-slate-500">Lien registered to winner. Network referral fee collected. Disbursing £1,200.</p></div>` : ''}
+                        </div>
+                        ${nft_processingStage >= 3 ? `<button onclick="nft_setStep('success')" class="w-full bg-slate-900 text-white py-4 rounded-xl font-medium hover:bg-slate-800 transition flex items-center justify-center mt-auto animate-fade-in">Next: View Settlement Receipt <i data-lucide="chevron-right" class="w-4 h-4 ml-2"></i></button>` : ''}
+                    </div>`;
+            } else if (nft_step === 'success') {
+                const winningBid = nft_bids.find(b => b.winner) || {value: 'Secured Rate'};
+                leftContent = `
+                    <div class="animate-fade-in flex-grow flex flex-col justify-center">
+                        <div class="flex flex-col items-center text-center mb-6"><div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center text-green-600 mb-4 border-4 border-green-50"><i data-lucide="check-circle" class="w-10 h-10"></i></div><h2 class="text-2xl font-bold mb-2 text-slate-800">Approved!</h2><p class="text-sm text-slate-500">£1,200 purchase settled instantly.</p></div>
+                        <div class="bg-slate-50 rounded-xl p-5 w-full border border-slate-200 text-sm mb-6">
+                            <h3 class="font-bold text-slate-800 mb-4 border-b border-slate-200 pb-2 flex items-center"><i data-lucide="file-text" class="w-4 h-4 mr-2 text-slate-500"></i> Fractional Lien Added</h3>
+                            <div class="mb-4"><div class="flex justify-between text-xs mb-1"><span class="text-slate-500">Collateral Drawn</span><span class="text-slate-800 font-bold">0.48% Used</span></div><div class="w-full bg-slate-200 h-4 rounded-full overflow-hidden flex shadow-inner"><div class="bg-red-500 h-full transition-all duration-1000 ease-out" style="width: 1.5%"></div><div class="bg-green-500 h-full flex-grow"></div></div><div class="flex justify-between text-xs mt-1"><span class="text-red-600 font-bold">£1,200 Locked</span><span class="text-green-600 font-bold">£248,800 Free</span></div></div>
+                            <div class="space-y-2 text-xs"><div class="flex justify-between"><span class="text-slate-500">Funding Lender:</span><span class="font-medium">Quantum Credit</span></div><div class="flex justify-between bg-blue-50 -mx-2 p-2 rounded"><span class="text-blue-800 font-medium">Secured Terms:</span><span class="font-bold text-blue-700">${winningBid.value}</span></div><div class="flex justify-between border-t border-slate-200 pt-2 mt-2"><span class="text-slate-500 flex items-center">Issuer Facilitation Fee: <span class="ml-1 text-[10px] bg-slate-200 px-1 rounded">Paid by Lender</span></span><span class="font-medium text-slate-800">£0.06</span></div></div>
+                        </div>
+                        <button onclick="nft_setStep('dashboard'); nft_creditPreference=null; renderNftDemo();" class="w-full bg-slate-900 text-white py-4 rounded-xl font-medium hover:bg-slate-800 transition mt-auto">Return to Dashboard</button>
+                    </div>`;
+            }
+
+            let rightContent = '';
+            if (nft_step === 'welcome') {
+                rightContent = `<div class="animate-fade-in bg-slate-800 p-6 rounded-xl border border-slate-700 shadow-xl"><h3 class="text-white text-xl font-bold mb-4 flex items-center"><i data-lucide="link" class="w-5 h-5 mr-3 text-blue-400"></i> The "Asset Rich, Cash Poor" Problem</h3><p class="text-sm leading-relaxed text-slate-300 mb-4">Traditional credit relies on an individual's unsecured risk profile, often leaving people with valuable illiquid assets unable to access immediate cash.</p><p class="text-sm leading-relaxed text-slate-300">This patent solves this by allowing a user to link a Web3 wallet—containing authenticated NFTs that represent physical or digital assets (like real estate)—directly to a universally accepted payment alias (like a Visa card).</p></div>`;
+            } else if (nft_step === 'linking') {
+                rightContent = `<div class="animate-fade-in bg-slate-800 p-6 rounded-xl border border-slate-700 shadow-xl"><h3 class="text-white text-xl font-bold mb-4 flex items-center"><i data-lucide="link" class="w-5 h-5 mr-3 text-blue-400"></i> Binding the Web3 Wallet</h3><p class="text-sm leading-relaxed text-slate-300 mb-4">The system creates a secure link between the user's universal payment network alias (Visa) and their decentralized Web3 wallet.</p><p class="text-sm leading-relaxed text-slate-300">This connection is essential. It allows the traditional payment rails to "see" and interact with the smart contracts governing the user's digital assets in real-time.</p></div>`;
+            } else if (nft_step === 'analyzing') {
+                rightContent = `<div class="animate-fade-in bg-slate-800 p-6 rounded-xl border border-slate-700 shadow-xl"><h3 class="text-white text-xl font-bold mb-4 flex items-center"><i data-lucide="database" class="w-5 h-5 mr-3 text-blue-400"></i> Validation & Risk Assessment</h3><p class="text-sm leading-relaxed text-slate-300 mb-4">Before allowing the asset to be used as collateral, the system evaluates its true risk. It doesn't rely on speculative market highs.</p><div class="bg-slate-900 p-4 rounded-lg border border-slate-800 mb-4"><p class="text-xs text-slate-500 mb-1">Assessed Market Value:</p><p class="text-sm text-white mb-3">£320,000</p><p class="text-xs text-slate-500 mb-1">Calculated Foreclosure Value:</p><p class="text-lg font-bold text-yellow-400">£250,000</p></div><p class="text-sm leading-relaxed text-slate-300">The system establishes a "minimum foreclosure value." By restricting all credit limits to this lower, guaranteed number, it completely eliminates default risk for the lending market.</p></div>`;
+            } else if (nft_step === 'dashboard') {
+                rightContent = `<div class="animate-fade-in bg-slate-800 p-6 rounded-xl border border-slate-700 shadow-xl"><h3 class="text-white text-xl font-bold mb-4 flex items-center"><i data-lucide="credit-card" class="w-5 h-5 mr-3 text-blue-400"></i> The Multi-Lender Smart Card</h3><p class="text-sm leading-relaxed text-slate-300 mb-4">Notice the cardholder's balances. They have a small current account balance (£45.50 available cash), but a massive £250,000 drawdown capacity backed by their assets.</p><p class="text-sm leading-relaxed text-slate-300">This card is no longer funded by a single issuing bank. It acts as a gateway. When a large purchase happens, this card will dynamically connect the user to multiple lending partners simultaneously.</p></div>`;
+            } else if (nft_step === 'checkout') {
+                rightContent = `<div class="animate-fade-in bg-slate-800 p-6 rounded-xl border border-slate-700 shadow-xl border-l-4 border-l-red-500"><h3 class="text-white text-xl font-bold mb-4 flex items-center"><i data-lucide="activity" class="w-5 h-5 mr-3 text-red-400"></i> Smart Credit Interception</h3><p class="text-sm leading-relaxed text-slate-300 mb-4">Under normal circumstances, this £1,200 transaction would simply be declined due to insufficient unsecured funds.</p><p class="text-sm leading-relaxed text-slate-300 bg-slate-900 p-3 rounded">Instead of a flat decline, the payment network recognizes the attached NFT collateral. It intercepts the failed transaction and prepares to route the purchase request to the open credit marketplace.</p></div>`;
+            } else if (nft_step === 'preferences') {
+                rightContent = `<div class="animate-fade-in bg-slate-800 p-6 rounded-xl border border-slate-700 shadow-xl"><h3 class="text-white text-xl font-bold mb-4 flex items-center"><i data-lucide="sliders" class="w-5 h-5 mr-3 text-blue-400"></i> Consumer Control</h3><div class="bg-blue-900/20 border border-blue-800/50 p-4 rounded mb-4 text-sm leading-relaxed text-blue-100"><p class="mb-2">Typically, a user sets these credit terms as a pre-set default during their initial card setup, meaning they automatically select the type of funding they prefer for every purchase.</p><p>However, the live bidding happens dynamically <strong>after each individual transaction</strong> to secure the best rate and loan option for that specific amount at the time of purchase.</p></div><p class="text-sm leading-relaxed text-slate-300">The payment itself is processed seamlessly through normal card rails, but the lending is done after the fact by the winning partner, fully collateralized by the user's NFT.</p></div>`;
+            } else if (nft_step === 'processing') {
+                rightContent = `
+                    <div class="space-y-4">
+                        ${nft_processingStage === 0 ? `<div class="animate-fade-in bg-slate-800 p-6 rounded-xl border border-slate-700 shadow-xl"><h3 class="text-white text-xl font-bold mb-4 flex items-center"><i data-lucide="activity" class="w-5 h-5 mr-3 text-blue-400"></i> Intercept & Valuation</h3><p class="text-sm leading-relaxed text-slate-300">The transaction is routed to the NFT API. The system verifies that the requested £1,200 is well within the £250,000 foreclosure value limit, confirming this as a zero-risk, fully secured loan request.</p></div>` : ''}
+                        ${nft_processingStage >= 2 ? `<div class="animate-fade-in bg-slate-800 p-6 rounded-xl border border-slate-700 shadow-xl"><h3 class="text-white text-xl font-bold mb-4 flex items-center"><i data-lucide="gavel" class="w-5 h-5 mr-3 text-yellow-400"></i> Live Arbitrage</h3><p class="text-sm leading-relaxed text-slate-300 mb-4">The requested terms are broadcast to partner banks. Because the loan is 100% secured by the NFT, the banks face zero default risk. They bid aggressively, driving the cost of borrowing down to wholesale rates.</p></div>` : ''}
+                        ${nft_processingStage >= 3 ? `<div class="animate-fade-in bg-slate-800 p-6 rounded-xl border border-slate-700 shadow-xl border-l-4 border-l-blue-500"><h3 class="text-white text-xl font-bold mb-4 flex items-center"><i data-lucide="database" class="w-5 h-5 mr-3 text-blue-400"></i> The Business Model</h3><div class="bg-slate-900 p-4 rounded-lg border border-slate-800"><p class="text-sm text-slate-400">The payment network (Visa) or the issuing bank takes a micro-cut (a referral fee) from the winning lender for facilitating this zero-risk matched loan.</p></div></div>` : ''}
+                    </div>`;
+            } else if (nft_step === 'success') {
+                rightContent = `<div class="animate-fade-in bg-slate-800 p-6 rounded-xl border border-slate-700 shadow-xl border-l-4 border-l-green-500"><h3 class="text-white text-xl font-bold mb-4 flex items-center"><i data-lucide="scale" class="w-5 h-5 mr-3 text-green-400"></i> Fractional Lien "Draw Down"</h3><div class="bg-slate-900 border border-slate-800 p-3 rounded mb-4"><p class="text-sm italic text-slate-300">"A credit facility provided on the first 20% of the NFT's value may have a low risk rating... this can then affect the credit facility and APR offer."</p></div><p class="text-sm leading-relaxed text-slate-300 mb-3">Instead of selling the property or taking out a massive second mortgage, the smart contract allows a <strong>micro-lien</strong> (just 0.48% of the foreclosure value) to be drawn down specifically for this £1,200 transaction.</p><p class="text-sm leading-relaxed text-slate-300">The merchant gets paid instantly in normal fiat currency, the lender issues a secured loan, and the user gets their drone.</p></div>`;
+            }
+
+            root.innerHTML = `
+                <div class="w-full max-w-5xl bg-white rounded-2xl shadow-2xl overflow-hidden flex flex-col md:flex-row min-h-[650px] border border-slate-200 mx-auto">
+                    <!-- LEFT PANEL -->
+                    <div class="w-full md:w-1/2 p-8 bg-white flex flex-col relative border-r border-slate-100 overflow-y-auto">
+                        <div class="flex justify-between items-center mb-8 flex-shrink-0">
+                            <h1 class="text-xl font-bold tracking-tight text-slate-800 flex items-center">Visa <span class="text-blue-600 ml-1">Web3</span></h1>
+                            ${(nft_step !== 'welcome' && nft_step !== 'linking') ? `<div class="flex items-center space-x-2 animate-fade-in"><div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-700 font-bold text-xs">SO</div></div>` : ''}
+                        </div>
+                        <div class="flex-grow flex flex-col">${leftContent}</div>
+                    </div>
+                    <!-- RIGHT PANEL -->
+                    <div class="w-full md:w-1/2 bg-slate-900 text-slate-300 p-8 flex flex-col overflow-y-auto hidden md:flex">
+                        <div class="mb-8 pb-6 border-b border-slate-700">
+                            <div class="inline-flex items-center space-x-2 bg-blue-900/30 text-blue-400 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-4 border border-blue-800/50"><i data-lucide="shield" class="w-3.5 h-3.5"></i> <span>Product Mechanics Explained</span></div>
+                            <h2 class="text-2xl font-bold text-white mb-2">Live Demo Walkthrough</h2><p class="text-slate-400 text-sm leading-relaxed">Experience the future of liquidity. Follow along here to understand the mechanics of this product as they happen in real-time.</p>
+                        </div>
+                        <div class="flex-grow">${rightContent}</div>
+                    </div>
+                </div>
+            `;
+            if (typeof lucide !== 'undefined') lucide.createIcons();
+        }
     </script>
 </body>
 </html>
