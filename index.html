@@ -66,7 +66,7 @@
         
         body { background-color: #f8fafc; overflow-x: hidden; }
 
-        .bg-shape { position: fixed; border-radius: 50%; filter: blur(100px); z-index: -1; opacity: 0.4; }
+        .bg-shape { position: fixed; border-radius: 50%; filter: blur(100px); z-index: -1; opacity: 0.4; pointer-events: none; }
         .shape-1 { width: 500px; height: 500px; background: #3b82f6; top: -150px; left: -100px; }
         .shape-2 { width: 400px; height: 400px; background: #10b981; bottom: -100px; right: -50px; }
         .shape-3 { width: 300px; height: 300px; background: #8b5cf6; top: 40%; left: 60%; }
@@ -84,6 +84,7 @@
 
         .text-gradient { background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
 
+        /* Visa Demo Styles */
         #new-demo-container { font-family: 'Plus Jakarta Sans', sans-serif; background: radial-gradient(circle at center, #1e293b 0%, #0f172a 100%); min-height: 850px; border-radius: 24px; position: relative; overflow: hidden; }
         .terminal-casing { background: linear-gradient(145deg, #2b2e4a, #151624); box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7), inset 0 2px 3px rgba(255, 255, 255, 0.1), inset 0 -5px 15px rgba(0, 0, 0, 0.8); border: 4px solid #334155; }
         .terminal-screen { background-color: #f8fafc; box-shadow: inset 0 3px 10px rgba(0, 0, 0, 0.2); }
@@ -114,7 +115,7 @@
 
         @media print {
             .page-section { display: block !important; opacity: 1 !important; transform: none !important; margin-bottom: 40px; page-break-inside: avoid; }
-            nav, .bg-shape, .interactive-btn, #demo, #chat-fab, #chat-window, .leaflet-control-container, #ai-modal { display: none !important; }
+            nav, .bg-shape, .interactive-btn, #demo, #chat-fab, #chat-window, .leaflet-control-container, #ai-modal, #easter-egg-modal { display: none !important; }
             body { background: white; }
         }
     </style>
@@ -241,7 +242,6 @@
             </div>
         </section>
 
-        <!-- EXPERIENCE SECTION -->
         <section id="experience" class="page-section">
             <div class="mb-12 text-center">
                 <h2 class="text-4xl font-heading font-bold text-slate-900 mb-4">Professional <span class="text-indigo-600">Journey</span></h2>
@@ -264,7 +264,6 @@
 
                 <!-- Visa -->
                 <div class="relative pl-8 md:pl-12 hover-lift reveal-on-scroll" style="transition-delay: 0.1s;">
-                    <!-- Visa Cloudinary Logo -->
                     <div class="absolute -left-[24px] top-0 w-11 h-11 bg-white border-2 border-slate-100 rounded-full flex items-center justify-center shadow-md p-1.5">
                         <img src="https://res.cloudinary.com/dgz07ilw7/image/upload/v1781550276/Visa_Inc._logo__t2o13v.png" alt="Visa Logo" class="w-full h-full object-contain">
                     </div>
@@ -334,9 +333,8 @@
                     </div>
                 </div>
 
-                <!-- Ealing Lawn Tennis Club -->
+                <!-- ELTC -->
                 <div class="relative pl-8 md:pl-12 hover-lift reveal-on-scroll" style="transition-delay: 0.2s;">
-                    <!-- ELTC Cloudinary Icon -->
                     <div class="absolute -left-[20px] top-0 w-10 h-10 bg-white border-2 border-slate-100 rounded-full flex items-center justify-center shadow-md p-1.5">
                         <img src="https://res.cloudinary.com/dgz07ilw7/image/upload/v1781550273/ELTC_High_Resolution_Logo_Transparent-_no_background_1_hsa4fm.avif" alt="ELTC Logo" class="w-full h-full object-contain rounded-full">
                     </div>
@@ -367,7 +365,6 @@
             </div>
         </section>
 
-        <!-- INNOVATION & DEMOS -->
         <section id="projects" class="page-section">
             <div class="mb-12 text-center">
                 <h2 class="text-4xl font-heading font-bold text-slate-900 mb-4">Innovation & <span class="text-blue-600">Demos</span></h2>
@@ -389,7 +386,6 @@
                         </p>
                     </div>
 
-                    <!-- Market Stats -->
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
                         <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 text-center hover-lift">
                             <div class="text-3xl font-black text-[#1434CB] mb-1">420M</div>
@@ -405,9 +401,7 @@
                         </div>
                     </div>
 
-                    <!-- Flow Comparison -->
                     <div class="grid md:grid-cols-2 gap-8 mb-10">
-                        <!-- The Problem -->
                         <div class="bg-rose-50 rounded-2xl p-8 border border-rose-100">
                             <h3 class="text-xl font-bold text-rose-900 mb-4 flex items-center gap-2">
                                 <i data-lucide="rotate-ccw" class="w-5 h-5"></i> The Traditional Split
@@ -426,7 +420,6 @@
                             </div>
                         </div>
 
-                        <!-- The Solution -->
                         <div class="bg-indigo-50 rounded-2xl p-8 border border-indigo-100">
                             <h3 class="text-xl font-bold text-indigo-900 mb-4 flex items-center gap-2">
                                 <i data-lucide="zap" class="w-5 h-5"></i> Visa Bill Share Flow
@@ -463,7 +456,7 @@
                 </div>
             </div>
 
-            <!-- Side-by-Side Patents -->
+            <!-- Patents -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
                 <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200 relative overflow-hidden group reveal-on-scroll">
                     <div class="absolute top-0 right-0 p-6 text-slate-100 group-hover:text-indigo-50 transition-colors">
@@ -508,10 +501,8 @@
                     See all 6 patents/disclosures <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                 </a>
             </div>
-
         </section>
 
-        <!-- THE APP SCREEN (Hidden initially) -->
         <section id="demo" class="page-section">
             <div class="mb-4 flex justify-between items-center">
                 <button onclick="exitDemo()" class="text-indigo-600 hover:text-indigo-800 font-bold flex items-center gap-2 transition-colors bg-white px-4 py-2 rounded-lg shadow-sm border border-slate-100 hover:shadow-md">
@@ -695,7 +686,7 @@
                                                 <span class="text-[9px] uppercase font-black text-indigo-400 tracking-wider">Assigned Share</span>
                                                 <div id="payment-screen-split-amount" class="text-4xl font-extrabold text-indigo-900 tracking-tight my-1">£0.00</div>
                                             </div>
-                                            <!-- Touch Sensor specifically designed to enable tap-on-glass mobile emulation without scrolling -->
+                                            <!-- Touch Sensor designed for mobile tap-on-glass emulation -->
                                             <div id="tap-sensor-zone" onclick="triggerSimulatedTap('card-' + ((currentPayerTapIndex % 4) + 1))" class="cursor-pointer hover:bg-indigo-50 active:scale-95 transition-all border-2 border-dashed border-indigo-300 rounded-3xl p-6 flex flex-col items-center justify-center relative bg-white shadow-sm hover:shadow-md min-h-[140px] group">
                                                 <div class="pulse-wave group-hover:border-indigo-400"></div><div class="pulse-wave group-hover:border-indigo-400"></div>
                                                 <div class="relative z-10 flex flex-col items-center gap-2">
@@ -724,8 +715,7 @@
                                                 <p class="text-xs text-emerald-600 font-bold tracking-wide uppercase mt-2">Visa Settlement Success</p>
                                             </div>
                                             <div class="mt-auto space-y-2">
-                                                <!-- Absolute scroll placement ensures receipt jumps into view on mobile immediately upon click -->
-                                                <button type="button" onclick="document.getElementById('receipt-viewer-panel').scrollIntoView({behavior: 'smooth', block: 'start'})" class="md:hidden w-full py-3 bg-emerald-50 hover:bg-emerald-100 text-emerald-700 rounded-2xl font-bold text-sm transition shadow-sm border border-emerald-200 flex items-center justify-center gap-2">
+                                                <button type="button" onclick="document.getElementById('receipt-viewer-panel').scrollIntoView({behavior: 'smooth', block: 'center'})" class="md:hidden w-full py-3 bg-emerald-50 hover:bg-emerald-100 text-emerald-700 rounded-2xl font-bold text-sm transition shadow-sm border border-emerald-200 flex items-center justify-center gap-2">
                                                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
                                                     View Digital Receipt
                                                 </button>
@@ -738,19 +728,19 @@
                         </div>
 
                         <!-- RIGHT SIDE: VIRTUAL WALLET & RECEIPT VIEWER -->
-                        <div class="flex-1 w-full relative h-[450px] md:h-[600px] mt-8 md:mt-0 rounded-3xl overflow-hidden hidden md:block">
-                            <!-- Note: Hidden on mobile by default to enforce terminal interaction, but available dynamically -->
+                        <div class="flex-1 w-full relative h-[450px] md:h-[600px] mt-8 md:mt-0 rounded-3xl overflow-hidden hidden md:block" id="receipt-container-block">
+                            <!-- Hidden on mobile by default to enforce terminal interaction, but available dynamically -->
                             <div id="wallet-panel" class="absolute inset-0 bg-slate-900/80 backdrop-blur-md p-6 rounded-3xl border border-slate-700 shadow-xl flex flex-col gap-4 transition-all duration-500 ease-in-out opacity-100 translate-x-0 z-10">
                                 <div class="border-b border-slate-800 pb-3 mb-2 flex justify-between items-end">
                                     <div>
                                         <h2 class="text-lg font-bold text-white">Customer Wallet</h2>
-                                        <p class="text-xs text-slate-400 mt-1">Tap the corresponding card when prompted.</p>
+                                        <p class="text-xs text-slate-400 mt-1">Simulated cards map to tapping the terminal.</p>
                                     </div>
                                 </div>
                                 <div class="grid grid-cols-1 gap-3 overflow-y-auto custom-scroll pr-2 pb-2" id="cards-wallet"></div>
                             </div>
 
-                            <div id="receipt-viewer-panel" class="absolute inset-0 bg-white p-6 rounded-3xl border-2 border-slate-200 shadow-2xl flex flex-col transition-all duration-500 ease-in-out opacity-0 translate-x-8 pointer-events-none z-0">
+                            <div id="receipt-viewer-panel" class="absolute inset-0 bg-white p-6 rounded-3xl border-2 border-slate-200 shadow-2xl flex flex-col transition-all duration-500 ease-in-out opacity-0 translate-x-8 pointer-events-none z-0 scroll-mt-24">
                                 <div class="border-b border-slate-200 pb-3 mb-4 text-left flex justify-between items-center">
                                     <div><h2 class="text-lg font-bold text-slate-900 flex items-center gap-2"><i data-lucide="receipt" class="w-5 h-5 text-indigo-600"></i> Consolidated Receipt</h2><p class="text-xs text-slate-500 mt-1">Single Batch Authorization Record</p></div>
                                     <div class="flex flex-col items-end gap-2">
@@ -773,7 +763,6 @@
             </div>
         </section>
         
-        <!-- NFT DEMO SECTION -->
         <section id="nft-demo-view" class="page-section">
             <div class="mb-4 flex justify-between items-center">
                 <button onclick="exitNftDemo()" class="text-indigo-600 hover:text-indigo-800 font-bold flex items-center gap-2 transition-colors bg-white px-4 py-2 rounded-lg shadow-sm border border-slate-100 hover:shadow-md">
@@ -786,7 +775,6 @@
             </div>
         </section>
 
-        <!-- TRAVEL SECTION -->
         <section id="travel" class="page-section">
             <div class="mb-8 text-center">
                 <h2 class="text-4xl font-heading font-bold text-slate-900 mb-4">Global <span class="text-teal-600">Travel</span></h2>
@@ -844,15 +832,14 @@
             </div>
         </section>
 
-        <!-- EXPERTISE & EDUCATION -->
         <section id="expertise" class="page-section">
             <div class="mb-12 text-center">
                 <h2 class="text-4xl font-heading font-bold text-slate-900 mb-4">Core <span class="text-emerald-500">Expertise</span> & Education</h2>
                 <p class="text-slate-600 max-w-2xl mx-auto">A multidisciplinary skill set bridging product vision, commercial strategy, technical execution, and formal accreditation.</p>
             </div>
             
-            <!-- SKILLS GRID -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
+                <!-- Product Management -->
                 <div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm hover-lift reveal-on-scroll">
                     <div class="flex items-center gap-4 mb-6">
                         <div class="w-12 h-12 bg-indigo-100 text-indigo-600 rounded-xl flex items-center justify-center"><i data-lucide="blocks" class="w-6 h-6"></i></div>
@@ -868,6 +855,7 @@
                     </div>
                 </div>
 
+                <!-- Payments -->
                 <div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm hover-lift reveal-on-scroll" style="transition-delay: 0.1s;">
                     <div class="flex items-center gap-4 mb-6">
                         <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center"><i data-lucide="credit-card" class="w-6 h-6"></i></div>
@@ -881,6 +869,7 @@
                     </div>
                 </div>
 
+                <!-- Data & Commercials -->
                 <div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm hover-lift reveal-on-scroll">
                     <div class="flex items-center gap-4 mb-6">
                         <div class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-xl flex items-center justify-center"><i data-lucide="bar-chart-3" class="w-6 h-6"></i></div>
@@ -894,6 +883,7 @@
                     </div>
                 </div>
 
+                <!-- AI & Innovation -->
                 <div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm hover-lift reveal-on-scroll" style="transition-delay: 0.1s;">
                     <div class="flex items-center gap-4 mb-6">
                         <div class="w-12 h-12 bg-purple-100 text-purple-600 rounded-xl flex items-center justify-center"><i data-lucide="cpu" class="w-6 h-6"></i></div>
@@ -910,10 +900,9 @@
 
             <!-- CULTURE & COMMUNITY -->
             <div class="bg-gradient-to-r from-indigo-50 to-blue-50 p-8 rounded-2xl border border-indigo-100 shadow-sm mb-16 hover-lift reveal-on-scroll relative overflow-hidden">
-                
                 <!-- Colorful Easter Egg Trigger -->
                 <div class="absolute -right-4 -top-4 sm:right-2 sm:top-2 p-2 z-20">
-                    <img src="https://res.cloudinary.com/dgz07ilw7/image/upload/v1782030097/IMG_1052_1_i6trxz.jpg" alt="Click Me!" onclick="openEasterEggModal()" class="w-32 h-32 sm:w-44 sm:h-44 object-cover rounded-full border-4 border-white shadow-lg transform rotate-12 hover:rotate-[18deg] hover:scale-110 transition-all cursor-pointer">
+                    <img src="https://res.cloudinary.com/dgz07ilw7/image/upload/v1782031557/Adobe_Express_-_file_yfe7oe.png" alt="Click Me!" onclick="openEasterEggModal()" class="w-32 h-32 sm:w-44 sm:h-44 object-contain drop-shadow-2xl transform rotate-12 hover:rotate-[18deg] hover:scale-110 transition-all cursor-pointer">
                 </div>
                 
                 <div class="relative z-10 text-center md:text-left max-w-4xl mx-auto sm:pr-40">
@@ -924,9 +913,8 @@
                 </div>
             </div>
 
-            <!-- EDUCATION HIERARCHY -->
+            <!-- EDUCATION -->
             <div class="max-w-4xl mx-auto space-y-6">
-                <!-- CMI Hero Card -->
                 <div class="bg-gradient-to-r from-amber-50 to-white p-8 rounded-2xl border border-amber-200 shadow-sm flex flex-col md:flex-row items-center gap-8 hover-lift reveal-on-scroll">
                     <div class="w-24 h-24 flex-shrink-0 flex items-center justify-center bg-white rounded-full shadow-sm p-4 border border-amber-100">
                         <img src="https://res.cloudinary.com/dgz07ilw7/image/upload/v1781550274/chartered-management-institute-cmi-logo_nqimfl.png" alt="CMI Logo" class="w-full h-auto object-contain">
@@ -942,9 +930,7 @@
                     </div>
                 </div>
 
-                <!-- 2-Column Grid for Uni & A-Levels -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <!-- Roehampton -->
                     <div class="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm flex flex-col items-center text-center hover-lift reveal-on-scroll" style="transition-delay: 0.1s;">
                         <div class="w-16 h-16 mb-4 flex items-center justify-center">
                             <img src="https://res.cloudinary.com/dgz07ilw7/image/upload/v1781550274/University_of_Roehampton_logo_gmkjsb.png" alt="University of Roehampton Logo" class="w-full h-full object-contain">
@@ -955,7 +941,6 @@
                         <p class="text-[11px] text-slate-400 font-medium italic leading-tight px-4">(University Program Completed as part of Degree Apprenticeship paid for by Visa)</p>
                     </div>
 
-                    <!-- Haileybury -->
                     <div class="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm flex flex-col items-center text-center hover-lift reveal-on-scroll" style="transition-delay: 0.2s;">
                         <div class="w-16 h-16 mb-4 flex items-center justify-center">
                             <img src="https://res.cloudinary.com/dgz07ilw7/image/upload/v1781550276/Haileybury_ateb0k.png" alt="Haileybury Logo" class="w-full h-full object-contain">
@@ -1027,19 +1012,18 @@
                 <div class="inline-flex items-center justify-center w-12 h-12 bg-amber-100 text-amber-500 rounded-full mb-4 shadow-sm border border-amber-200">
                     <i data-lucide="award" class="w-6 h-6"></i>
                 </div>
-                <h3 class="text-2xl font-bold text-slate-900 mb-3">You found the Easter Egg! 🎉</h3>
+                <h3 class="text-2xl font-bold text-slate-900 mb-3">You found the Tech Easter Egg! 🎉</h3>
                 <p class="text-slate-600 leading-relaxed text-sm mb-6">
-                    Congratulations! This discovery entitles you to a free coffee and photographic proof of me riding an ostrich at age 7. Clearly, I was years ahead of my time! #67
+                    Congratulations! This discovery entitles you to a free coffee and photographic proof of me riding an ostrich at age 7. I was also clearly years ahead of my time! #67
                 </p>
                 <a href="mailto:samueloliverj@gmail.com?subject=I%20Found%20the%20Easter%20Egg" onclick="closeEasterEggModal()" class="w-full bg-indigo-600 text-white py-3.5 rounded-xl font-bold hover:bg-indigo-700 transition shadow-md flex justify-center items-center gap-2">
-                    <i data-lucide="coffee" class="w-5 h-5"></i> Claim My Coffee
+                    <i data-lucide="coffee" class="w-5 h-5"></i> Claim Your Free Coffee
                 </a>
             </div>
         </div>
     </div>
 
     <script>
-        // Ensure Lucide icons load correctly upon initial DOM readiness
         document.addEventListener('DOMContentLoaded', () => {
             if (typeof lucide !== 'undefined') lucide.createIcons();
         });
@@ -1047,36 +1031,22 @@
         // --- GLOBAL UI & MODAL LOGIC ---
         window.openAiModal = function() {
             const modal = document.getElementById('ai-modal');
-            if (modal) {
-                modal.classList.remove('hidden');
-                document.body.style.overflow = 'hidden'; 
-                if (typeof lucide !== 'undefined') lucide.createIcons();
-            }
+            if (modal) { modal.classList.remove('hidden'); document.body.style.overflow = 'hidden'; }
         };
 
         window.closeAiModal = function() {
             const modal = document.getElementById('ai-modal');
-            if (modal) {
-                modal.classList.add('hidden');
-                document.body.style.overflow = ''; 
-            }
+            if (modal) { modal.classList.add('hidden'); document.body.style.overflow = ''; }
         };
 
         window.openEasterEggModal = function() {
             const modal = document.getElementById('easter-egg-modal');
-            if (modal) {
-                modal.classList.remove('hidden');
-                document.body.style.overflow = 'hidden'; 
-                if (typeof lucide !== 'undefined') lucide.createIcons();
-            }
+            if (modal) { modal.classList.remove('hidden'); document.body.style.overflow = 'hidden'; }
         };
 
         window.closeEasterEggModal = function() {
             const modal = document.getElementById('easter-egg-modal');
-            if (modal) {
-                modal.classList.add('hidden');
-                document.body.style.overflow = ''; 
-            }
+            if (modal) { modal.classList.add('hidden'); document.body.style.overflow = ''; }
         };
 
         // --- NAVIGATION LOGIC ---
@@ -1105,7 +1075,6 @@
                             section.style.opacity = 1;
                             section.style.transform = 'translateY(0)';
                             
-                            // Auto-trigger reveals in the newly active section so it looks full immediately
                             if (targetId === 'experience') {
                                 setTimeout(() => {
                                     section.querySelectorAll('.reveal-on-scroll').forEach(el => el.classList.add('is-visible'));
@@ -1116,7 +1085,6 @@
                                 }, 50);
                             }
                             
-                            // Map Initialization securely isolated
                             if (targetId === 'travel') {
                                 if (!isTravelMapInitialized) {
                                     initMap();
@@ -1413,61 +1381,10 @@
                 const item = document.createElement('div'); item.className = 'relative mb-6 cursor-pointer group';
                 item.innerHTML = `<div class="absolute w-4 h-4 bg-white border-4 border-indigo-500 rounded-full -left-[35px] top-1 group-hover:scale-125 transition-transform shadow-md z-10"></div><div class="bg-white p-3 rounded-lg border border-slate-100 shadow-sm hover:shadow-md transition-all hover:border-indigo-200"><div class="flex justify-between items-start mb-1"><h3 class="font-bold text-slate-800 text-sm flex items-center gap-1">${stop.flag} ${stop.country} ${daysBadge}</h3></div><p class="text-xs text-indigo-600 font-semibold mb-1 flex items-center gap-1">${stop.emoji} Highlight: ${stop.monument}</p><p class="text-xs text-slate-500 leading-relaxed">${stop.desc}</p>${index < journeyData.length - 1 ? `<div class="mt-2 text-[10px] text-slate-400 font-medium uppercase tracking-wider flex items-center gap-1">Next: ${journeyData[index].transportEmoji} via ${journeyData[index].transport}</div>` : ''}</div>`;
                 item.onclick = () => {
-                    tourNavigate(index, false);
+                    window.tourNavigate(index, false);
                 };
                 timelineDiv.appendChild(item);
             });
-        }
-
-        async function renderTourMap() {
-            clearMap(); const coordinates = journeyData.map(d => [d.lat, d.lng]);
-            const path = L.polyline(coordinates, { color: '#4f46e5', weight: 3, dashArray: '8, 8', opacity: 0.8 }).addTo(map); currentPolylines.push(path);
-            
-            journeyData.forEach((stop, index) => {
-                const backBtnClass = index === 0 ? 'opacity-30 cursor-not-allowed pointer-events-none' : '';
-                const nextBtnClass = index === journeyData.length - 1 ? 'opacity-30 cursor-not-allowed pointer-events-none' : '';
-                
-                const popupContent = `
-                    <div class="text-center p-2 min-w-[220px]">
-                        <div class="text-3xl mb-2">${stop.flag}</div>
-                        <h3 class="font-bold text-slate-800">${stop.country}</h3>
-                        ${stop.days > 0 ? `<div class="text-xs font-bold text-indigo-600 mt-1 mb-2 bg-indigo-50 inline-block px-2 py-1 rounded">⏳ ${stop.days} Days Highlight</div>` : ''}
-                        <p class="text-sm font-semibold text-slate-700">${stop.emoji} ${stop.monument}</p>
-                        <p class="text-xs text-slate-500 mt-2 mb-4">${stop.desc}</p>
-                        <div class="flex justify-between items-center mt-3 pt-3 border-t border-slate-100 gap-1">
-                            <button onclick="tourNavigate(${index - 1}, false)" class="flex-1 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded text-[10px] font-bold transition-colors ${backBtnClass}">⏪ Back</button>
-                            <button onclick="tourStopAction()" class="flex-1 py-1.5 bg-rose-50 hover:bg-rose-100 text-rose-600 rounded text-[10px] font-bold transition-colors">⏹️ Stop</button>
-                            <button onclick="tourNavigate(${index + 1}, false)" class="flex-1 py-1.5 bg-indigo-50 hover:bg-indigo-100 text-indigo-700 rounded text-[10px] font-bold transition-colors ${nextBtnClass}">Next ⏭️</button>
-                        </div>
-                    </div>
-                `;
-
-                const marker = L.marker([stop.lat, stop.lng], { icon: createCountryLabelIcon(stop.flag, stop.country) })
-                    .addTo(map)
-                    .bindPopup(popupContent);
-
-                marker.on('click', () => { 
-                    tourNavigate(index, false);
-                }); 
-                currentMarkers.push(marker);
-                if (index < journeyData.length - 1) {
-                    const nextStop = journeyData[index + 1]; const transportMarker = L.marker([(stop.lat + nextStop.lat) / 2, (stop.lng + nextStop.lng) / 2], { icon: createTransportIcon(stop.transportEmoji) }).addTo(map).bindTooltip(`via ${stop.transport}`, { direction: 'top', className: 'text-xs font-bold' });
-                    currentMarkers.push(transportMarker);
-                }
-            });
-            
-            try {
-                const data = await loadGeoJson(); const tourCountryIds = new Set(journeyData.map(d => d.id));
-                tourGeoLayer = L.geoJSON(data, {
-                    style: function(feature) {
-                        const countryCode = feature.id;
-                        if (tourCountryIds.has(countryCode) || (countryCode === "GBR" && tourCountryIds.has("GBR"))) { const countryData = lifetimeCountries.find(c => c.id === countryCode || (countryCode === "GBR" && (c.id === "GBR" || c.id === "GBR_W"))); return { fillColor: countryData ? countryData.color : '#4f46e5', weight: 1, opacity: 0.6, color: '#ffffff', fillOpacity: 0.4 }; }
-                        return { fillColor: '#e2e8f0', weight: 1, color: '#ffffff', fillOpacity: 0.2 };
-                    }
-                }).addTo(map);
-                tourGeoLayer.bringToBack();
-            } catch (error) { console.error("Failed to load map data", error); }
-            map.setView([12, 15], 2);
         }
 
         let currentTourResolver = null;
@@ -1534,7 +1451,9 @@
             await skippableDelay(1600);
             if (!tourActive && autoAdvance) return;
 
-            currentMarkers[index * 2].openPopup();
+            if (currentMarkers[index * 2]) {
+                currentMarkers[index * 2].openPopup();
+            }
             
             const timelineItems = document.getElementById('timeline').children;
             Array.from(timelineItems).forEach(el => el.children[1].classList.remove('ring-2', 'ring-indigo-500', 'bg-indigo-50'));
@@ -1561,7 +1480,7 @@
                     break;
                 }
             }
-            tourNavigate(startIndex, true);
+            window.tourNavigate(startIndex, true);
         }
 
         function stopAutomatedTour() {
@@ -1582,6 +1501,57 @@
             map.flyTo([12, 15], 2, { duration: 2 });
             synthEngine.stop();
             Array.from(document.getElementById('timeline').children).forEach(el => el.children[1].classList.remove('ring-2', 'ring-indigo-500', 'bg-indigo-50'));
+        }
+
+        async function renderTourMap() {
+            clearMap(); const coordinates = journeyData.map(d => [d.lat, d.lng]);
+            const path = L.polyline(coordinates, { color: '#4f46e5', weight: 3, dashArray: '8, 8', opacity: 0.8 }).addTo(map); currentPolylines.push(path);
+            
+            journeyData.forEach((stop, index) => {
+                const backBtnClass = index === 0 ? 'opacity-30 cursor-not-allowed pointer-events-none' : '';
+                const nextBtnClass = index === journeyData.length - 1 ? 'opacity-30 cursor-not-allowed pointer-events-none' : '';
+                
+                const popupContent = `
+                    <div class="text-center p-2 min-w-[220px]">
+                        <div class="text-3xl mb-2">${stop.flag}</div>
+                        <h3 class="font-bold text-slate-800">${stop.country}</h3>
+                        ${stop.days > 0 ? `<div class="text-xs font-bold text-indigo-600 mt-1 mb-2 bg-indigo-50 inline-block px-2 py-1 rounded">⏳ ${stop.days} Days Highlight</div>` : ''}
+                        <p class="text-sm font-semibold text-slate-700">${stop.emoji} ${stop.monument}</p>
+                        <p class="text-xs text-slate-500 mt-2 mb-4">${stop.desc}</p>
+                        <div class="flex justify-between items-center mt-3 pt-3 border-t border-slate-100 gap-1">
+                            <button onclick="tourNavigate(${index - 1}, false)" class="flex-1 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded text-[10px] font-bold transition-colors ${backBtnClass}">⏪ Back</button>
+                            <button onclick="tourStopAction()" class="flex-1 py-1.5 bg-rose-50 hover:bg-rose-100 text-rose-600 rounded text-[10px] font-bold transition-colors">⏹️ Stop</button>
+                            <button onclick="tourNavigate(${index + 1}, false)" class="flex-1 py-1.5 bg-indigo-50 hover:bg-indigo-100 text-indigo-700 rounded text-[10px] font-bold transition-colors ${nextBtnClass}">Next ⏭️</button>
+                        </div>
+                    </div>
+                `;
+
+                const marker = L.marker([stop.lat, stop.lng], { icon: createCountryLabelIcon(stop.flag, stop.country) })
+                    .addTo(map)
+                    .bindPopup(popupContent);
+
+                marker.on('click', () => { 
+                    window.tourNavigate(index, false);
+                }); 
+                currentMarkers.push(marker);
+                if (index < journeyData.length - 1) {
+                    const nextStop = journeyData[index + 1]; const transportMarker = L.marker([(stop.lat + nextStop.lat) / 2, (stop.lng + nextStop.lng) / 2], { icon: createTransportIcon(stop.transportEmoji) }).addTo(map).bindTooltip(`via ${stop.transport}`, { direction: 'top', className: 'text-xs font-bold' });
+                    currentMarkers.push(transportMarker);
+                }
+            });
+            
+            try {
+                const data = await loadGeoJson(); const tourCountryIds = new Set(journeyData.map(d => d.id));
+                tourGeoLayer = L.geoJSON(data, {
+                    style: function(feature) {
+                        const countryCode = feature.id;
+                        if (tourCountryIds.has(countryCode) || (countryCode === "GBR" && tourCountryIds.has("GBR"))) { const countryData = lifetimeCountries.find(c => c.id === countryCode || (countryCode === "GBR" && (c.id === "GBR" || c.id === "GBR_W"))); return { fillColor: countryData ? countryData.color : '#4f46e5', weight: 1, opacity: 0.6, color: '#ffffff', fillOpacity: 0.4 }; }
+                        return { fillColor: '#e2e8f0', weight: 1, color: '#ffffff', fillOpacity: 0.2 };
+                    }
+                }).addTo(map);
+                tourGeoLayer.bringToBack();
+            } catch (error) { console.error("Failed to load map data", error); }
+            map.setView([12, 15], 2);
         }
 
         function initLifetimeList() {
@@ -1663,7 +1633,7 @@
         function exitNftDemo() { 
             isNftDemoActive = false;
             const root = document.getElementById('nft-react-root');
-            if (root) root.innerHTML = ''; // Clears UI logic to break rendering loop
+            if (root) root.innerHTML = ''; 
             navigate('projects'); 
         }
 
