@@ -85,7 +85,7 @@
         .text-gradient { background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
 
         /* Visa Demo Styles */
-        #new-demo-container { font-family: 'Plus Jakarta Sans', sans-serif; background: radial-gradient(circle at center, #1e293b 0%, #0f172a 100%); min-height: 850px; border-radius: 24px; position: relative; overflow: hidden; }
+        #new-demo-container { font-family: 'Plus Jakarta Sans', sans-serif; background: radial-gradient(circle at center, #1e293b 0%, #0f172a 100%); min-height: 100%; border-radius: 24px; position: relative; overflow: hidden; }
         .terminal-casing { background: linear-gradient(145deg, #2b2e4a, #151624); box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7), inset 0 2px 3px rgba(255, 255, 255, 0.1), inset 0 -5px 15px rgba(0, 0, 0, 0.8); border: 4px solid #334155; }
         .terminal-screen { background-color: #f8fafc; box-shadow: inset 0 3px 10px rgba(0, 0, 0, 0.2); }
         @keyframes printReceipt { 0% { max-height: 0; transform: translateY(-20px); opacity: 0; } 100% { max-height: 500px; transform: translateY(0); opacity: 1; } }
@@ -159,7 +159,7 @@
             </div>
         </div>
         
-        <div id="mobile-menu" class="hidden bg-white border-t border-slate-100 absolute w-full shadow-lg">
+        <div id="mobile-menu" class="hidden bg-white border-t border-slate-100 absolute w-full shadow-lg z-[100]">
             <div class="px-4 pt-2 pb-4 space-y-1 flex flex-col">
                 <button onclick="navigate('home'); toggleMobileMenu()" class="text-left px-3 py-3 rounded-md text-base font-medium text-indigo-600 bg-indigo-50">Home</button>
                 <button onclick="navigate('experience'); toggleMobileMenu()" class="text-left px-3 py-3 rounded-md text-base font-medium text-slate-700 hover:bg-slate-50">Experience</button>
@@ -232,7 +232,7 @@
             </div>
             
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-12 border-t border-slate-200 pt-10">
-                <div><div class="text-sm text-slate-500 mb-1">Email</div><a href="mailto:samueloliverj@gmail.com" class="font-medium text-slate-800 hover:text-indigo-600 transition-colors">samueloliverj@gmail.com</a></div>
+                <div><div class="text-sm text-slate-500 mb-1">Email</div><a href="mailto:samueloliverj@gmail.com" class="font-medium text-slate-800 hover:text-indigo-600 transition-colors break-all">samueloliverj@gmail.com</a></div>
                 <div><div class="text-sm text-slate-500 mb-1">Phone</div><div class="font-medium text-slate-800">+44 (0)7516990162</div></div>
                 <div><div class="text-sm text-slate-500 mb-1">Location</div><div class="font-medium text-slate-800">Ealing, London W5</div></div>
                 <div><div class="text-sm text-slate-500 mb-1">Accreditation</div><div class="font-medium text-slate-800">MCMI CMgr (Distinction)</div></div>
@@ -517,7 +517,7 @@
                                 <div id="physical-receipt-out" class="absolute bottom-0 w-64 max-h-0 overflow-hidden z-20"></div>
                             </div>
 
-                            <div class="terminal-casing w-[360px] h-[720px] rounded-[40px] p-4 flex flex-col relative">
+                            <div class="terminal-casing w-full max-w-[360px] h-[720px] rounded-[40px] p-4 flex flex-col relative shrink-0">
                                 <div class="absolute top-2 left-1/2 -translate-x-1/2 w-32 h-6 bg-slate-950 rounded-full flex items-center justify-between px-4 z-20">
                                     <div class="w-2.5 h-2.5 rounded-full bg-blue-900 border border-blue-400/20"></div>
                                     <div id="device-status-led" class="w-2 h-2 rounded-full bg-emerald-500 transition-colors shadow-lg shadow-emerald-500/50"></div>
@@ -790,7 +790,7 @@
                 <p class="text-slate-600 max-w-2xl mx-auto">An interactive map exploring the 18-month professional sabbatical across 14 global destinations.</p>
             </div>
             
-            <div class="w-full h-[70vh] flex flex-row border border-slate-200 rounded-3xl overflow-hidden shadow-xl relative bg-white">
+            <div class="w-full h-[70vh] min-h-[500px] flex flex-row border border-slate-200 rounded-3xl overflow-hidden shadow-xl relative bg-white">
                 <!-- Sidebar -->
                 <div id="sidebar" class="sidebar-transition absolute md:relative z-[500] w-full md:w-[420px] h-full bg-white shadow-2xl flex flex-col border-r border-slate-200 -translate-x-full md:translate-x-0">
                     <div class="p-5 bg-gradient-to-br from-indigo-800 via-blue-700 to-teal-600 text-white shadow-md relative">
@@ -977,32 +977,34 @@
 
     <!-- AI SHOWCASE MODAL -->
     <div id="ai-modal" class="hidden fixed inset-0 z-[10000] flex items-center justify-center bg-slate-900/60 backdrop-blur-md p-4 transition-all duration-300">
-        <div class="bg-white rounded-3xl shadow-2xl border border-slate-200 overflow-hidden max-w-4xl w-full flex flex-col md:flex-row min-h-[500px] animate-fade-in relative">
-            <button onclick="closeAiModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 bg-slate-100 hover:bg-slate-200 p-2 rounded-full transition-all z-50">
+        <div class="bg-white rounded-3xl shadow-2xl border border-slate-200 overflow-hidden max-w-4xl w-full flex flex-col h-auto max-h-[90vh] animate-fade-in relative">
+            <button onclick="closeAiModal()" class="absolute top-4 right-4 text-slate-500 hover:text-slate-700 bg-white/90 backdrop-blur-sm hover:bg-slate-100 p-2.5 rounded-full transition-all z-[60] shadow-sm">
                 <i data-lucide="x" class="w-5 h-5"></i>
             </button>
 
-            <div class="w-full md:w-1/2 p-8 bg-white flex flex-col justify-center border-r border-slate-100">
-                <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center mb-6">
-                    <i data-lucide="credit-card" class="w-6 h-6"></i>
+            <div class="overflow-y-auto custom-scroll w-full flex flex-col md:flex-row h-full">
+                <div class="w-full md:w-1/2 p-6 md:p-8 bg-white flex flex-col justify-center border-b md:border-b-0 md:border-r border-slate-100">
+                    <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center mb-6 shrink-0">
+                        <i data-lucide="credit-card" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-slate-900 mb-3">Interactive Visa Bill Share Demo</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed">
+                        I engineered an interactive, high-fidelity terminal prototype to showcase this product feature from end to end. The demo emulates a localized POS transaction loop, featuring custom-built equal and uneven bill splitting algorithms, itemized diner allocations, simulated contactless chip-reads, concurrent batch authorizations, and instant digital receipt rendering. It provides a completely functional sandbox for testing my 0-to-1 product mechanics.
+                    </p>
                 </div>
-                <h3 class="text-2xl font-bold text-slate-900 mb-3">Interactive Visa Bill Share Demo</h3>
-                <p class="text-sm text-slate-600 leading-relaxed">
-                    I engineered an interactive, high-fidelity terminal prototype to showcase this product feature from end to end. The demo emulates a localized POS transaction loop, featuring custom-built equal and uneven bill splitting algorithms, itemized diner allocations, simulated contactless chip-reads, concurrent batch authorizations, and instant digital receipt rendering. It provides a completely functional sandbox for testing my 0-to-1 product mechanics.
-                </p>
-            </div>
 
-            <div class="w-full md:w-1/2 bg-slate-950 text-slate-300 p-8 flex flex-col justify-center">
-                <div class="w-12 h-12 bg-indigo-900/50 text-indigo-400 rounded-xl flex items-center justify-center mb-6">
-                    <i data-lucide="github" class="w-6 h-6"></i>
-                </div>
-                <h3 class="text-2xl font-bold text-white mb-3">Zero-to-One Deployment</h3>
-                <p class="text-sm text-slate-400 leading-relaxed mb-4">
-                    I am an active AI user, constantly integrating new tools into my daily routine to accelerate prototyping, data synthesis, and routine execution. I hand-coded and designed this entire portfolio site from scratch to demonstrate this capability. This includes custom styles, reactive state management, and the bespoke Leaflet GIS map. To show rapid execution and absolute deployment competence, I spun up the codebase and launched it live to the web via GitHub Pages.
-                </p>
-                <div class="bg-slate-900 border border-slate-800 p-4 rounded-xl flex items-center gap-3">
-                    <div class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></div>
-                    <span class="text-xs font-mono text-slate-300">Deployed live on GitHub Pages</span>
+                <div class="w-full md:w-1/2 bg-slate-950 text-slate-300 p-6 md:p-8 flex flex-col justify-center">
+                    <div class="w-12 h-12 bg-indigo-900/50 text-indigo-400 rounded-xl flex items-center justify-center mb-6 shrink-0">
+                        <i data-lucide="github" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-3">Zero-to-One Deployment</h3>
+                    <p class="text-sm text-slate-400 leading-relaxed mb-4">
+                        I am an active AI user, constantly integrating new tools into my daily routine to accelerate prototyping, data synthesis, and routine execution. I hand-coded and designed this entire portfolio site from scratch to demonstrate this capability. This includes custom styles, reactive state management, and the bespoke Leaflet GIS map. To show rapid execution and absolute deployment competence, I spun up the codebase and launched it live to the web via GitHub Pages.
+                    </p>
+                    <div class="bg-slate-900 border border-slate-800 p-4 rounded-xl flex items-center gap-3 mt-auto shrink-0">
+                        <div class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse shrink-0"></div>
+                        <span class="text-xs font-mono text-slate-300">Deployed live on GitHub Pages</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1010,24 +1012,26 @@
 
     <!-- EASTER EGG MODAL -->
     <div id="easter-egg-modal" class="hidden fixed inset-0 z-[10000] flex items-center justify-center bg-slate-900/80 backdrop-blur-md p-4 transition-all duration-300">
-        <div class="bg-white rounded-3xl shadow-2xl border border-slate-200 overflow-hidden max-w-md w-full flex flex-col animate-fade-in relative text-center">
-            <button onclick="closeEasterEggModal()" class="absolute top-4 right-4 text-white hover:text-slate-200 bg-black/30 hover:bg-black/50 p-2 rounded-full transition-all z-50 backdrop-blur-sm">
+        <div class="bg-white rounded-3xl shadow-2xl border border-slate-200 overflow-hidden max-w-md w-full flex flex-col h-auto max-h-[90vh] animate-fade-in relative text-center">
+            <button onclick="closeEasterEggModal()" class="absolute top-4 right-4 text-white hover:text-slate-200 bg-black/30 hover:bg-black/50 p-2.5 rounded-full transition-all z-[60] backdrop-blur-sm">
                 <i data-lucide="x" class="w-5 h-5"></i>
             </button>
-            <div class="w-full h-64 sm:h-80 relative overflow-hidden bg-slate-100">
-                <img src="https://res.cloudinary.com/dgz07ilw7/image/upload/v1782030097/IMG_1052_1_i6trxz.jpg" alt="Riding an Ostrich" class="w-full h-full object-cover object-center">
-            </div>
-            <div class="p-8 bg-white">
-                <div class="inline-flex items-center justify-center w-12 h-12 bg-amber-100 text-amber-500 rounded-full mb-4 shadow-sm border border-amber-200">
-                    <i data-lucide="award" class="w-6 h-6"></i>
+            <div class="overflow-y-auto custom-scroll w-full flex flex-col h-full">
+                <div class="w-full h-56 sm:h-72 relative shrink-0 bg-slate-100">
+                    <img src="https://res.cloudinary.com/dgz07ilw7/image/upload/v1782030097/IMG_1052_1_i6trxz.jpg" alt="Riding an Ostrich" class="w-full h-full object-cover object-center">
                 </div>
-                <h3 class="text-2xl font-bold text-slate-900 mb-3">You found the Tech Easter Egg! 🎉</h3>
-                <p class="text-slate-600 leading-relaxed text-sm mb-6">
-                    Congratulations! This discovery entitles you to a free coffee and photographic proof of me riding an ostrich at age 7. I was also clearly years ahead of my time! #67
-                </p>
-                <a href="mailto:samueloliverj@gmail.com?subject=I%20Found%20the%20Easter%20Egg" onclick="closeEasterEggModal()" class="w-full bg-indigo-600 text-white py-3.5 rounded-xl font-bold hover:bg-indigo-700 transition shadow-md flex justify-center items-center gap-2">
-                    <i data-lucide="coffee" class="w-5 h-5"></i> Claim Your Free Coffee
-                </a>
+                <div class="p-6 sm:p-8 bg-white">
+                    <div class="inline-flex items-center justify-center w-12 h-12 bg-amber-100 text-amber-500 rounded-full mb-4 shadow-sm border border-amber-200">
+                        <i data-lucide="award" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-slate-900 mb-3">You found the Tech Easter Egg! 🎉</h3>
+                    <p class="text-slate-600 leading-relaxed text-sm mb-6">
+                        Congratulations! This discovery entitles you to a free coffee and photographic proof of me riding an ostrich at age 7. I was also clearly years ahead of my time! #67
+                    </p>
+                    <a href="mailto:samueloliverj@gmail.com?subject=I%20Found%20the%20Easter%20Egg" onclick="closeEasterEggModal()" class="w-full bg-indigo-600 text-white py-3.5 rounded-xl font-bold hover:bg-indigo-700 transition shadow-md flex justify-center items-center gap-2">
+                        <i data-lucide="coffee" class="w-5 h-5"></i> Claim Your Free Coffee
+                    </a>
+                </div>
             </div>
         </div>
     </div>
@@ -1806,18 +1810,18 @@
             }
 
             root.innerHTML = `
-                <div class="w-full max-w-5xl bg-white rounded-2xl shadow-2xl overflow-hidden flex flex-col md:flex-row min-h-[650px] border border-slate-200 mx-auto">
+                <div class="w-full max-w-5xl bg-white rounded-2xl shadow-2xl overflow-hidden flex flex-col md:flex-row md:min-h-[650px] border border-slate-200 mx-auto">
                     <!-- LEFT PANEL -->
-                    <div class="w-full md:w-1/2 p-8 bg-white flex flex-col relative border-r border-slate-100 overflow-y-auto">
-                        <div class="flex justify-between items-center mb-8 flex-shrink-0">
+                    <div class="w-full md:w-1/2 p-6 md:p-8 bg-white flex flex-col relative border-b md:border-b-0 md:border-r border-slate-100 overflow-y-auto">
+                        <div class="flex justify-between items-center mb-6 md:mb-8 flex-shrink-0">
                             <h1 class="text-xl font-bold tracking-tight text-slate-800 flex items-center">Visa <span class="text-blue-600 ml-1">Web3</span></h1>
                             ${(nft_step !== 'welcome' && nft_step !== 'linking') ? `<div class="flex items-center space-x-2 animate-fade-in"><div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-700 font-bold text-xs">SO</div></div>` : ''}
                         </div>
                         <div class="flex-grow flex flex-col">${leftContent}</div>
                     </div>
                     <!-- RIGHT PANEL -->
-                    <div class="w-full md:w-1/2 bg-slate-900 text-slate-300 p-8 flex flex-col overflow-y-auto">
-                        <div class="mb-8 pb-6 border-b border-slate-700">
+                    <div class="w-full md:w-1/2 bg-slate-900 text-slate-300 p-6 md:p-8 flex flex-col overflow-y-auto">
+                        <div class="mb-6 md:mb-8 pb-6 border-b border-slate-700">
                             <div class="inline-flex items-center space-x-2 bg-blue-900/30 text-blue-400 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-4 border border-blue-800/50"><i data-lucide="shield" class="w-3.5 h-3.5"></i> <span>Product Mechanics Explained</span></div>
                             <h2 class="text-2xl font-bold text-white mb-2">Live Demo Walkthrough</h2><p class="text-slate-400 text-sm leading-relaxed">Experience the future of liquidity. Follow along here to understand the mechanics of this product as they happen in real-time.</p>
                         </div>
